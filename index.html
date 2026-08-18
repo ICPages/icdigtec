@@ -1021,29 +1021,36 @@
 
                 <div class="col-lg-8">
 
-                    <form class="contact-form">
+                    <form class="contact-form" id="formContacto">
 
                         <div class="row g-3">
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Nombre completo" aria-label="Nombre completo">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo"
+                                    aria-label="Nombre completo" required>
                             </div>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                                <input type="email" class="form-control" id="correo"
+                                    placeholder="Correo electrónico (opcional)" aria-label="Correo electrónico">
                             </div>
 
                             <div class="col-12">
-                                <input type="text" class="form-control" placeholder="Asunto" aria-label="Asunto">
+                                <input type="text" class="form-control" id="asunto" placeholder="Asunto"
+                                    aria-label="Asunto" required>
                             </div>
 
                             <div class="col-12">
-                                <textarea class="form-control" rows="6" placeholder="Mensaje"></textarea>
+                                <textarea class="form-control" id="mensaje" rows="6" placeholder="Mensaje"
+                                    aria-label="Mensaje" required></textarea>
                             </div>
 
                             <div class="col-12">
-                                <button class="btn btn-primary btn-custom">
+                                <button type="submit" class="btn btn-primary btn-custom">
+
+                                    <i class="bi bi-whatsapp"></i>
                                     Enviar mensaje
+
                                 </button>
                             </div>
 
