@@ -953,7 +953,6 @@ s {
 .footer {
     background: #080b14;
     padding: 50px;
-    text-align: center;
     font-size: 90%;
 }
 
@@ -970,6 +969,14 @@ s {
 
 .footer-slogan {
     color: var(--silver);
+}
+
+.footer i, h5 {
+    color: #0047CC;
+}
+
+.hero-social-links i {
+    color: var(--text-secondary);
 }
 
 .footer-links {
