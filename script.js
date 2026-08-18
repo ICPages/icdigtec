@@ -1,4 +1,3 @@
-
 /* MODAL SELECTOR DE PAÍS */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -61,15 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const correo = document.getElementById("correo").value.trim();
         const asunto = document.getElementById("asunto").value.trim();
         const mensaje = document.getElementById("mensaje").value.trim();
-        let texto = `*Hola IC DigTec!*%0A%0A`;
+        let texto = `¡Hola *IC DigTec*!%0A%0A`;
         texto += `*Nombre:* ${nombre}%0A`;
         if (correo) {
             texto += `*Correo:* ${correo}%0A`;
         }
-        texto += `*Asunto:* ${asunto}%0A%0A`;
-        texto += `*Mensaje:*%0A${mensaje}`;
+        texto += `*Asunto:* ${asunto}%0A`;
+        texto += `*Mensaje:* ${mensaje}`;
         const telefono = "522221106016";
-        const url = `https://wa.me/${telefono}?text=${texto}`;
+        const url = `https://wa.me/${telefono}?text=${texto}.`;
         window.open(url, "_blank");
     });
 });
