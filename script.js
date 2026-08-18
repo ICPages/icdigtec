@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         banderaActual.className = `fi fi-${codigoPais}`;
     }
     const paisGuardado = localStorage.getItem("pais");
+    actualizarPrecios();
     if (paisGuardado) {
         actualizarPaisNavbar();
     } else {
@@ -36,12 +37,30 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("pais", pais);
             localStorage.setItem("moneda", moneda);
             actualizarPaisNavbar();
+            actualizarPrecios();
             modalPais.hide();
             console.log("País seleccionado:", pais);
             console.log("Moneda:", moneda);
         });
     });
 });
+
+/* CAMBIADOR DE PRECIOS */
+function actualizarPrecios() {
+
+    const moneda = localStorage.getItem("moneda") || "MXN";
+
+    document.querySelectorAll(".precio").forEach(precio => {
+
+        const valor = precio.dataset[moneda.toLowerCase()];
+
+        if (valor) {
+            precio.textContent = valor;
+        }
+
+    });
+
+}
 
 /* CONTADOR 0 A 100 */
 document.addEventListener("DOMContentLoaded", function () {
