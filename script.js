@@ -47,19 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* CAMBIADOR DE PRECIOS */
 function actualizarPrecios() {
-
     const moneda = localStorage.getItem("moneda") || "MXN";
-
     document.querySelectorAll(".precio").forEach(precio => {
-
         const valor = precio.dataset[moneda.toLowerCase()];
-
         if (valor) {
             precio.textContent = valor;
         }
-
     });
-
 }
 
 /* CONTADOR 0 A 100 */
@@ -111,6 +105,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     requestAnimationFrame(animarCalificacion);
+});
+
+/* P & R*/
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+        const item = button.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+        item.classList.toggle('active');
+    });
 });
 
 /* FORMULARIO DE CONTACTO */
