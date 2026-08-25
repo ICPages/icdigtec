@@ -888,6 +888,462 @@ s {
     gap: 10px;
 }
 
+/* ¿EN QUÉ CONSISTE TI? */
+
+.ti-hover-card {
+    height: 260px;
+    perspective: 1000px;
+}
+
+.ti-hover-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .7s ease;
+    transform-style: preserve-3d;
+}
+
+.ti-hover-card:hover .ti-hover-card-inner { transform: rotateY(180deg); }
+
+/* CARAS */
+
+.ti-card-front, .ti-card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+/* FRENTE */
+
+.ti-card-front { z-index: 2; }
+
+.ti-card-front h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* REVERSO */
+
+.ti-card-back { transform: rotateY(180deg); }
+
+.ti-card-back h4 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.ti-card-back p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    font-size: .88rem;
+}
+
+/* ICONO */
+
+.ti-info-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    background: rgba(13, 110, 253, .12);
+    border: 1px solid rgba(28, 181, 255, .12);
+    color: var(--primary-light);
+    font-size: 1.6rem;
+    transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+/* Efecto del icono al pasar el cursor */
+
+.ti-hover-card:hover .ti-info-icon {
+    background: rgba(13, 110, 253, .18);
+    box-shadow: 0 0 25px rgba(28, 181, 255, .12);
+    transform: scale(1.05);
+}
+
+
+/* INDICACIÓN DE HOVER */
+
+.ti-card-hint {
+    margin-top: 15px;
+    color: var(--text-muted);
+    font-size: .72rem;
+    font-weight: 500;
+    opacity: .75;
+}
+
+
+/* HOVER DEL BORDE */
+
+.ti-hover-card:hover .ti-card-front,
+.ti-hover-card:hover .ti-card-back {
+    border-color: rgba(28, 181, 255, .25);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, .18);
+}
+.bi-check-square { color: green; }
+
+.bi-x-square  { color: red; }
+
+/* =================================
+   PLANES DE SOPORTE TI
+================================= */
+
+#planes-ti {
+    position: relative;
+}
+
+
+/* =================================
+   INCLUIDO EN TODOS LOS PLANES
+================================= */
+
+.incluido-ti {
+    margin-top: 35px;
+    padding: 25px 30px;
+
+    background: var(--card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+
+    box-shadow: var(--shadow-card);
+}
+
+.incluido-ti h4 {
+    margin-bottom: 22px;
+
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.incluido-ti h4 i {
+    margin-right: 8px;
+    color: var(--primary-light);
+}
+
+.incluido-ti-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 25px;
+}
+
+.incluido-ti-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--text-secondary);
+
+    font-size: .88rem;
+    line-height: 1.5;
+}
+
+.incluido-ti-item i {
+    flex-shrink: 0;
+
+    color: var(--primary-light);
+    font-size: .95rem;
+}
+
+
+/* =================================
+   TABLA DE PLANES
+================================= */
+
+.tabla-planes-ti-wrapper {
+    margin-top: 35px;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+
+    background: var(--card);
+
+    box-shadow: var(--shadow-card);
+
+    scrollbar-width: thin;
+}
+
+
+/* Tabla */
+
+.tabla-planes-ti {
+    width: 100%;
+    min-width: 720px;
+
+    margin: 0;
+
+    border-collapse: collapse;
+
+    color: var(--text);
+
+    font-size: .88rem;
+}
+
+
+/* =================================
+   ENCABEZADO
+================================= */
+
+.tabla-planes-ti thead th {
+    padding: 20px 18px;
+
+    background: rgba(13, 110, 253, .06);
+
+    border-bottom: 1px solid var(--border-subtle);
+
+    color: var(--text);
+
+    font-size: .9rem;
+    font-weight: 700;
+
+    text-align: center;
+    white-space: nowrap;
+}
+
+.tabla-planes-ti thead th:first-child {
+    text-align: left;
+}
+
+
+/* =================================
+   FILAS
+================================= */
+
+.tabla-planes-ti tbody tr {
+    transition:
+        background .25s ease;
+}
+
+.tabla-planes-ti tbody tr:hover {
+    background: rgba(255, 255, 255, .025);
+}
+
+.tabla-planes-ti tbody tr:not(:last-child) td {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.tabla-planes-ti tbody td {
+    padding: 18px;
+
+    color: var(--text-secondary);
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla-planes-ti tbody td:first-child {
+    width: 34%;
+
+    color: var(--text);
+
+    font-weight: 600;
+
+    text-align: left;
+}
+
+
+/* =================================
+   COLORES DE LOS PLANES
+================================= */
+
+.plan-esencial {
+    color: #4ade80;
+}
+
+.plan-profesional {
+    color: #38bdf8;
+}
+
+.plan-empresarial {
+    color: #c084fc;
+}
+
+
+/* =================================
+   ICONOS DE LA TABLA
+================================= */
+
+.tabla-planes-ti td .bi-check-circle-fill {
+    color: var(--primary-light);
+
+    font-size: 1.05rem;
+}
+
+.tabla-planes-ti td .bi-x-circle-fill {
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+
+    opacity: .65;
+}
+
+
+/* Emojis de las celdas */
+
+.tabla-planes-ti td {
+    line-height: 1.4;
+}
+
+
+/* =================================
+   PRECIOS
+================================= */
+
+.precios-ti {
+    margin-top: 35px;
+}
+
+.precio-plan-ti {
+    height: 100%;
+
+    padding: 25px 22px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-card);
+
+    text-align: center;
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.precio-plan-ti:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(28, 181, 255, .25);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .18);
+}
+
+.precio-plan-ti h4 {
+    margin-bottom: 18px;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.precio-mensual {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.precio-anual {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: .82rem;
+}
+
+
+/* =================================
+   BOTÓN
+================================= */
+
+#planes-ti .btn-custom {
+    margin-top: 5px;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 991px) {
+
+    .incluido-ti-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .incluido-ti {
+        padding: 22px 20px;
+    }
+
+    .incluido-ti-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .tabla-planes-ti-wrapper {
+        border-radius: 14px;
+    }
+
+    .tabla-planes-ti {
+        min-width: 680px;
+    }
+
+    .tabla-planes-ti thead th,
+    .tabla-planes-ti tbody td {
+        padding: 15px 14px;
+    }
+
+    .precios-ti {
+        margin-top: 25px;
+    }
+
+    .precio-plan-ti {
+        padding: 22px 18px;
+    }
+
+}
+
+
+/* ================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+    .ti-hover-card {
+        height: 280px;
+    }
+
+    .ti-card-front,
+    .ti-card-back {
+        padding: 25px;
+    }
+
+}
+
 /* RESPONSIVE - DESKTOP */
 
 @media (min-width: 992px) {
