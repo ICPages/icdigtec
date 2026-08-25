@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soporte TI para Empresas | IC DigTec</title>
+
+    <meta name="description"
+        content="IC DigTec ofrece soporte TI para empresas. Soporte remoto, mantenimiento preventivo, revisión de equipos, inventario, seguimiento de incidencias y atención prioritaria.">
+
+    <meta name="keywords"
+        content="soporte TI empresas, soporte técnico empresas, TI Puebla, mantenimiento empresas, soporte remoto, mantenimiento preventivo, IC DigTec">
+
+    <meta name="author" content="IC DigTec">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://www.ictecdigital.com/para-empresas.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Soporte TI para Empresas | IC DigTec">
+    <meta property="og:description"
+        content="Soporte TI profesional para empresas, con atención remota, mantenimiento preventivo, seguimiento de incidencias y atención prioritaria.">
+    <meta property="og:url" content="https://www.ictecdigital.com/para-empresas.html">
+    <meta property="og:image" content="https://www.ictecdigital.com/Img/Preview.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Soporte TI para Empresas | IC DigTec">
+    <meta name="twitter:description"
+        content="Soporte TI profesional para empresas con IC DigTec.">
+    <meta name="twitter:image" content="https://www.ictecdigital.com/Img/Preview.webp">
+
+    <!-- Favicon -->
+    <link rel="icon" href="Img/Icono.webp">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+
+        /* ================================
+           HERO EMPRESAS
+        ================================= */
+
+        .hero-empresas {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background:
+                radial-gradient(circle at top right, rgba(13, 110, 253, .25), transparent 40%);
+        }
+
+        .hero-empresas-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero-empresas-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 85px;
+            height: 85px;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            background: rgba(13, 110, 253, .12);
+            border: 1px solid rgba(28, 181, 255, .25);
+            color: var(--primary-light);
+            font-size: 2.5rem;
+            box-shadow: 0 0 40px rgba(13, 110, 253, .12);
+        }
+
+        .hero-empresas-title {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero-empresas-title span {
+            color: var(--primary-light);
+        }
+
+        .hero-empresas-text {
+            max-width: 750px;
+            margin: auto;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+
+        /* ================================
+           BLOQUE INFORMACIÓN TI
+        ================================= */
+
+        .ti-info-card {
+            height: 100%;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            transition: .4s ease;
+        }
+
+        .ti-info-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(28, 181, 255, .2);
+        }
+
+        .ti-info-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            background: rgba(13, 110, 253, .12);
+            color: var(--primary-light);
+            font-size: 1.5rem;
+        }
+
+        .ti-info-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .ti-info-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+
+        /* ================================
+           INCLUIDO EN TODOS
+        ================================= */
+
+        .incluido-ti {
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(13, 110, 253, .06);
+            border: 1px solid rgba(28, 181, 255, .15);
+            border-radius: var(--radius-card);
+        }
+
+        .incluido-ti h4 {
+            text-align: center;
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .incluido-ti-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 30px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .incluido-ti-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+        }
+
+        .incluido-ti-item i {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+        }
+
+
+        /* ================================
+           TABLA PLANES TI
+        ================================= */
+
+        .tabla-planes-ti-wrapper {
+            margin-top: 40px;
+            overflow-x: auto;
+            border-radius: var(--radius-card);
+        }
+
+        .tabla-planes-ti {
+            width: 100%;
+            min-width: 750px;
+            margin: 0;
+            background: var(--card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-card);
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            color: var(--text);
+        }
+
+        .tabla-planes-ti thead th {
+            padding: 22px 18px;
+            text-align: center;
+            background: rgba(255, 255, 255, .04);
+            color: var(--text);
+            font-size: .88rem;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .tabla-planes-ti thead th:first-child {
+            text-align: left;
+        }
+
+        .tabla-planes-ti tbody td {
+            padding: 17px 18px;
+            text-align: center;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            font-size: .88rem;
+        }
+
+        .tabla-planes-ti tbody td:first-child {
+            text-align: left;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .tabla-planes-ti tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tabla-planes-ti tbody tr {
+            transition: .25s ease;
+        }
+
+        .tabla-planes-ti tbody tr:hover td {
+            background: rgba(28, 181, 255, .04);
+        }
+
+        .plan-esencial {
+            color: #7CFF8A;
+        }
+
+        .plan-profesional {
+            color: var(--primary-light);
+        }
+
+        .plan-empresarial {
+            color: #C084FC;
+        }
+
+
+        /* ================================
+           PRECIOS PLANES TI
+        ================================= */
+
+        .precios-ti {
+            margin-top: 25px;
+        }
+
+        .precio-plan-ti {
+            height: 100%;
+            padding: 25px;
+            background: var(--card);
+            border: 1px solid var(--border-light);
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .precio-plan-ti h4 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .precio-plan-ti .precio-mensual {
+            display: block;
+            color: var(--primary-light);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .precio-plan-ti .precio-anual {
+            color: var(--text-muted);
+            font-size: .85rem;
+        }
+
+
+        /* ================================
+           PLANES DIGITALES
+        ================================= */
+
+        .digital-empresa-card {
+            height: 100%;
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-card);
+            transition: .4s ease;
+        }
+
+        .digital-empresa-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(28, 181, 255, .2);
+        }
+
+        .digital-empresa-card .icon {
+            display: block;
+            text-align: center;
+            color: var(--primary-light);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .digital-empresa-card h4 {
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .digital-empresa-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+
+        /* ================================
+           PARA QUIÉN TRABAJAMOS
+        ================================= */
+
+        .cliente-empresa {
+            text-align: center;
+            height: 100%;
+            padding: 30px 20px;
+            background: var(--card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 30px;
+        }
+
+        .cliente-empresa i {
+            display: block;
+            color: var(--primary-light);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cliente-empresa h5 {
+            color: var(--text);
+            font-size: .95rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+
+        /* ================================
+           PREGUNTAS Y RESPUESTAS
+        ================================= */
+
+        .faq-container {
+            max-width: 950px;
+            margin: 35px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+            background: var(--card);
+            border: 1px solid var(--border-light);
+            border-radius: 22px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            text-align: left;
+            font-size: .92rem;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-light);
+        }
+
+        .faq-question i {
+            flex-shrink: 0;
+            color: var(--primary-light);
+            transition: transform .3s ease;
+        }
+
+        .faq-question[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px 22px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: .88rem;
+        }
+
+        .faq-answer strong {
+            color: var(--text);
+        }
+
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 768px) {
+
+            .hero-empresas {
+                min-height: 80vh;
+            }
+
+            .incluido-ti-list {
+                grid-template-columns: 1fr;
+            }
+
+            .ti-info-card,
+            .digital-empresa-card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"ProfessionalService",
+      "name":"IC DigTec",
+      "description":"Soporte TI, mantenimiento y soluciones informáticas para empresas.",
+      "areaServed":"Puebla, México",
+      "url":"https://www.ictecdigital.com/para-empresas.html"
+    }
+    </script>
+
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+
+        <div class="container-fluid px-4">
+
+            <a class="navbar-brand" href="index.html" aria-label="IC DigTec Inicio"><img src="Img/Logo.webp" alt="IC DigTec" class="logo-navbar"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido"
+                aria-controls="navbarContenido" aria-expanded="false" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+
+            <div class="collapse navbar-collapse" id="navbarContenido">
+
+                <div class="navbar-sections flex-grow-1">
+
+                    <ul class="navbar-nav align-items-lg-center justify-content-center">
+
+                        <!-- PARA EMPRESAS -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-main-link">Para Empresas</a>
+                        </li>
+
+                        <li class="nav-dot">|</li>
+
+                        <!-- SERVICIOS DIGITALES -->
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-main-link">Servicios Digitales</a>
+                            <div class="nav-dropdown-menu">
+                                <span class="nav-dropdown-title">Servicios Digitales</span>
+                                <div class="nav-dropdown-links">
+                                    <a href="#servicios-digitales">Individuales</a>
+                                    <span>|</span>
+                                    <a href="#planes-mensuales">Planes Mensuales</a>
+                                    <span>|</span>
+                                    <a href="#sitios-web">Sitios Web por Suscripción</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-dot">|</li>
+
+                        <!-- SERVICIOS TÉCNICOS -->
+                        <li class="nav-item nav-dropdown">
+                            <a class="nav-main-link">Servicios Técnicos</a>
+                            <div class="nav-dropdown-menu">
+                                <span class="nav-dropdown-title">Servicios Técnicos</span>
+                                <div class="nav-dropdown-links">
+                                    <a href="#servicios-presenciales">Presenciales</a>
+                                    <span>|</span>
+                                    <a href="#servicios-remotos">Remotos</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-dot">|</li>
+
+                        <!-- SOBRE MÍ -->
+                        <li class="nav-item">
+                            <a href="#sobre-mi" class="nav-main-link">Sobre Mí</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="navbar-actions d-flex align-items-center gap-2">
+
+                    <button type="button" class="btn btn-pais-navbar" id="cambiarPais" aria-label="Cambiar país">
+                        <i class="fi fi-mx" id="banderaActual"></i> <span id="paisActual">México</span>
+                    </button>
+
+                    <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20DigTec*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20"
+                        target="_blank" class="btn btn-primary btn-custom"><i class="bi bi-whatsapp"></i> Contactar</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+     <section id="inicio" class="hero-section">
+
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-7">
+
+                    <span class="hero-badge">
+
+                        <i class="bi bi-buildings me-2"></i>
+
+                        Soluciones TI para Empresas
+
+                    </span>
+
+
+                    <h1 class="hero-title">
+
+                        Tu empresa necesita tecnología que
+                        <span class="hero-highlight">
+                            simplemente funcione.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-text">
+
+                        En <strong>IC DigTec</strong> ayudamos a pequeñas y medianas empresas
+                        a mantener sus equipos funcionando, resolver problemas tecnológicos
+                        y mejorar sus procesos mediante soluciones digitales.
+
+                    </p>
+
+                </div>
+
+
+                <div class="col-lg-5">
+
+                    <div class="hero-visual">
+
+                        <div class="hero-glow"></div>
+
+
+                        <div class="hero-visual-card">
+
+                            <div class="text-center mb-4">
+
+                                <i class="bi bi-building-gear service-icon"></i>
+
+                                <h4>
+                                    Soporte para tu empresa
+                                </h4>
+
+                                <p>
+                                    Tecnología, mantenimiento y soporte
+                                    cuando lo necesitas.
+                                </p>
+
+                            </div>
+
+
+                            <div class="service-features">
+
+                                <ul>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        Soporte TI remoto
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        Mantenimiento presencial
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        Configuración de equipos y redes
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        Soluciones digitales
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ¿En qué consiste el servicio TI? -->
+    <section class="section-padding">
+
+    <div class="container">
+
+        <div class="section-title text-center">
+
+            <h2><i class="bi bi-headset"></i> ¿En qué consiste el servicio TI?</h2>
+
+            <p>
+                Un servicio de soporte TI pensado para que tu empresa pueda concentrarse en su trabajo mientras nosotros nos encargamos de la parte tecnológica.
+            </p>
+
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <!-- CARD 1 -->
+            <div class="col-md-4">
+
+                <div class="ti-hover-card">
+
+                    <div class="ti-hover-card-inner">
+
+                        <!-- Frente -->
+                        <div class="ti-card-front">
+
+                            <div class="ti-info-icon"><i class="bi bi-tools"></i></div>
+
+                            <h4>Soporte y atención tecnológica</h4>
+
+                        </div>
+
+
+                        <!-- Hover -->
+                        <div class="ti-card-back">
+
+                            <div class="ti-info-icon"><i class="bi bi-tools"></i></div>
+
+                            <h4>Soporte y atención tecnológica</h4>
+
+                            <p>
+                                Atendemos incidencias relacionadas con equipos de cómputo, software, configuraciones y otros problemas tecnológicos que puedan afectar las actividades de tu empresa.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-md-4">
+
+                <div class="ti-hover-card">
+
+                    <div class="ti-hover-card-inner">
+
+                        <!-- Frente -->
+                        <div class="ti-card-front">
+
+                            <div class="ti-info-icon"><i class="bi bi-graph-up-arrow"></i></div>
+
+                            <h4>Prevención y seguimiento</h4>
+
+                        </div>
+
+
+                        <!-- Hover -->
+                        <div class="ti-card-back">
+
+                            <div class="ti-info-icon"><i class="bi bi-graph-up-arrow"></i></div>
+
+                            <h4>Prevención y seguimiento</h4>
+
+                            <p>
+                                Además de resolver problemas, buscamos prevenir futuras incidencias mediante revisiones, seguimiento y recomendaciones que ayuden a mantener una infraestructura tecnológica más estable.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-md-4">
+
+                <div class="ti-hover-card">
+
+                    <div class="ti-hover-card-inner">
+
+                        <!-- Frente -->
+                        <div class="ti-card-front">
+
+                            <div class="ti-info-icon"><i class="bi bi-hand-thumbs-up"></i></div>
+
+                            <h4>Nuestro compromiso</h4>
+
+                        </div>
+
+                        <!-- Hover -->
+                        <div class="ti-card-back">
+
+                            <div class="ti-info-icon"><i class="bi bi-hand-thumbs-up"></i></div>
+
+                            <h4>Nuestro compromiso</h4>
+
+                            <p>
+                                En <strong>IC DigTec</strong> buscamos ofrecer una atención clara, profesional y responsable. Cada incidencia recibe seguimiento y buscamos brindar soluciones prácticas que ayuden a reducir interrupciones y mantener la operación de tu empresa.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <!-- Planes de Soporte TI -->
+    <section id="planes-ti"
+        class="section-padding">
+
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2><i class="bi bi-clipboard2-check"></i> Planes de Soporte TI</h2>
+                <p>Elige el nivel de soporte que mejor se adapte al tamaño y necesidades de tu empresa.</p>
+            </div>
+
+            <div class="tabla-planes-ti-wrapper">
+
+                <table class="tabla-planes-ti">
+
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Esencial</th>
+                            <th>Profesional</th>
+                            <th>Empresarial</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Soporte TI remoto</td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Revisión inicial</td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Inventario de equipos</td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Atención prioritaria</td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Informe mensual</td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Registro de tickets</td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Revisión preventiva periódica</td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-x-circle-fill"></i></td>
+                            <td><i class="bi bi-check-circle-fill"></i></td>
+                        </tr>
+
+                        <tr>
+                            <td>Precio por equipo</td>
+                            <td class="precio" data-mxn="$199 MXN / mes" data-eur="€25 EUR / mes" data-usd="$49 USD / mes">$199 MXN / mes</td>
+                            <td class="precio" data-mxn="$249 MXN / mes" data-eur="€35 EUR / mes" data-usd="$69 USD / mes">$249 MXN / mes</td>
+                            <td class="precio" data-mxn="$299 MXN / mes" data-eur="€45 EUR / mes" data-usd="$89 USD / mes">$299 MXN / mes</td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td><div  class="service-buttons"><a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20cotizar%20el%20plan%20_Esencial_%20de%20Soporte%20TI%20para%20mi%20empresa." target="_blank" class="btn btn-primary"> <i class="bi bi-whatsapp"></i> Cotizar</a></div></td>
+                            <td><div  class="service-buttons"><a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20cotizar%20el%20plan%20_Profesional_%20de%20Soporte%20TI%20para%20mi%20empresa." target="_blank" class="btn btn-primary"> <i class="bi bi-whatsapp"></i> Cotizar</a></div></td>
+                            <td><div  class="service-buttons"><a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20cotizar%20el%20plan%20_Empresarial_%20de%20Soporte%20TI%20para%20mi%20empresa." target="_blank" class="btn btn-primary"> <i class="bi bi-whatsapp"></i> Cotizar</a></div></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Planes Mensuales Digitales -->
+    <section id="planes-mensuales" class="section-padding">
+
+        <div class="container">
+
+            <div class="section-title text-center">
+                <h2><i class="bi bi-calendar-range"></i> Planes Mensuales Digitales</h2>
+                <p>Paquetes de contenido y servicios digitales diseñados para mantener tu negocio activo y visible de forma constante.</p>
+            </div>
+
+            <div class="row g-4 mt-4">
+
+                <!-- Plan Starter -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div>
+                            <h4>Plan Starter</h4>
+                            <p>Plan ideal para comenzar a promocionar tu marca.</p>
+                        </div>
+                        <div>
+                            <h5 class="price-title"><i class="bi bi-list"></i> Incluye</h5>
+                            <div class="service-features">
+                                <ul>
+                                    <li><i class="bi bi-check-circle-fill"></i> 3 flyers</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 1 video de hasta 90 segundos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:25px;">
+                            <h5 class="price-title"><i class="bi bi-tag"></i> Precio Mensual</h5>
+                            <div class="service-price" style="text-align: center; margin-bottom:0px;">
+                                <span class="precio" data-mxn="$1,049 MXN" data-eur="€79 EUR" data-usd="$105 USD">$1,049 MXN</span>
+                            </div>
+                            <s class="precio" data-mxn="$1,350 MXN" data-eur="€99 EUR" data-usd="$129 USD">$1,350 MXN</s>
+                        </div>
+                        <div class="service-buttons">
+                            <a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20solicitar%20_Plan%20Starter_." target="_blank" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Solicitar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Business -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card mas-vendido-contorno">
+                        <span class="mas-vendido-titulo"><i class="bi bi-star-fill"></i> Más Vendido</span>
+                        <div>
+                            <h4>Plan Business</h4>
+                            <p>Recomendado para mantener activas tus redes sociales.</p>
+                        </div>
+                        <div>
+                            <h5 class="price-title"><i class="bi bi-list"></i> Incluye</h5>
+                            <div class="service-features">
+                                <ul>
+                                    <li><i class="bi bi-check-circle-fill"></i> 5 flyers</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 2 videos de hasta 90 segundos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:25px;">
+                            <h5 class="price-title"><i class="bi bi-tag"></i> Precio Mensual</h5>
+                            <div class="service-price" style="text-align: center; margin-bottom:0px;">
+                                <span class="precio" data-mxn="$1,999 MXN" data-eur="€149 EUR" data-usd="$199 USD">$1,999 MXN</span>
+                            </div>
+                            <s class="precio" data-mxn="$2,400 MXN" data-eur="€179 EUR" data-usd="$239 USD">$2,400 MXN</s>
+                        </div>
+                        <div class="service-buttons">
+                            <a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20solicitar%20_Plan%20Business_." target="_blank" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Solicitar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plan Premium -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div>
+                            <h4>Plan Premium</h4>
+                            <p>Para empresas con campañas constantes y mayor presencia digital.</p>
+                        </div>
+                        <div>
+                            <h5 class="price-title"><i class="bi bi-list"></i> Incluye</h5>
+                            <div class="service-features">
+                                <ul>
+                                    <li><i class="bi bi-check-circle-fill"></i> 8 flyers</li>
+                                    <li><i class="bi bi-check-circle-fill"></i> 4 videos de hasta 90 segundos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:25px;">
+                            <h5 class="price-title"><i class="bi bi-tag"></i> Precio Mensual</h5>
+                            <div class="service-price" style="text-align: center; margin-bottom:0px;">
+                                <span class="precio" data-mxn="$3,899 MXN" data-eur="€299 EUR" data-usd="$389 USD">$3,899 MXN</span>
+                            </div>
+                            <s class="precio" data-mxn="$4,300 MXN" data-eur="€329 EUR" data-usd="$429 USD">$4,300 MXN</s>
+                        </div>
+                        <div class="service-buttons">
+                            <a href="https://wa.me/522221106016?text=%C2%A1Hola%20*IC%20DigTec*!%20Quiero%20solicitar%20_Plan%20Premium_." target="_blank" class="btn btn-primary"><i class="bi bi-whatsapp"></i> Solicitar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         ¿PARA QUIÉN TRABAJAMOS?
+    ================================= -->
+
+    <section class="section-padding">
+
+        <div class="container">
+
+
+            <div class="section-title text-center">
+
+                <h2>
+                    <i class="bi bi-people"></i>
+                    ¿Para quién trabajamos?
+                </h2>
+
+                <p>
+                    Nuestro servicio está pensado para organizaciones
+                    que dependen de la tecnología para realizar sus
+                    actividades diariamente.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4 mt-4">
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-shop"></i>
+
+                        <h5>
+                            Comercios y negocios
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-mortarboard"></i>
+
+                        <h5>
+                            Escuelas
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-heart-pulse"></i>
+
+                        <h5>
+                            Clínicas y consultorios
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-bank"></i>
+
+                        <h5>
+                            Despachos y oficinas
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-building"></i>
+
+                        <h5>
+                            Pequeñas empresas
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-briefcase"></i>
+
+                        <h5>
+                            Profesionales independientes
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-diagram-3"></i>
+
+                        <h5>
+                            Sucursales
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="cliente-empresa">
+
+                        <i class="bi bi-buildings"></i>
+
+                        <h5>
+                            PYMES
+                        </h5>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         PREGUNTAS Y RESPUESTAS
+    ================================= -->
+
+    <section id="preguntas-respuestas"
+        class="section-padding">
+
+        <div class="container">
+
+
+            <div class="section-title text-center">
+
+                <h2>
+                    <i class="bi bi-question-circle"></i>
+                    Preguntas y Respuestas
+                </h2>
+
+                <p>
+                    Resolvemos algunas de las preguntas más frecuentes
+                    sobre nuestro servicio TI para empresas.
+                </p>
+
+            </div>
+
+
+            <div class="faq-container">
+
+
+                <!-- FAQ 1 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq1"
+                        aria-expanded="false"
+                        aria-controls="faq1">
+
+                        ¿Qué incluye el servicio TI?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq1"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Todos los planes incluyen diagnóstico inicial
+                            de TI, soporte remoto, registro de incidencias,
+                            informe mensual, recomendaciones de TI y
+                            seguimiento de incidencias.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 2 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq2"
+                        aria-expanded="false"
+                        aria-controls="faq2">
+
+                        ¿El soporte es remoto o presencial?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq2"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            El soporte TI incluido en los planes es
+                            principalmente <strong>remoto</strong>.
+                            Los planes Profesional y Empresarial incluyen
+                            características de revisión que permiten
+                            complementar la atención remota con seguimiento
+                            periódico de los equipos.
+
+                            Las intervenciones presenciales o trabajos
+                            adicionales pueden cotizarse por separado
+                            cuando sean necesarios.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 3 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq3"
+                        aria-expanded="false"
+                        aria-controls="faq3">
+
+                        ¿Cuántos equipos puedo incluir?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq3"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            El <strong>Plan Esencial</strong> contempla
+                            hasta 9 equipos, el <strong>Profesional</strong>
+                            hasta 14 equipos y el
+                            <strong>Empresarial</strong> hasta 29 equipos.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 4 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq4"
+                        aria-expanded="false"
+                        aria-controls="faq4">
+
+                        ¿Qué sucede si mi empresa supera el límite de equipos?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq4"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Podemos revisar las necesidades de tu empresa
+                            y elaborar una propuesta personalizada de
+                            acuerdo con la cantidad de equipos y el nivel
+                            de soporte requerido.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 5 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq5"
+                        aria-expanded="false"
+                        aria-controls="faq5">
+
+                        ¿Cómo se reportan las incidencias?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq5"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Las incidencias pueden reportarse directamente
+                            con IC DigTec mediante los canales de atención
+                            establecidos. Cada solicitud se registra para
+                            facilitar su seguimiento hasta su resolución.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 6 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq6"
+                        aria-expanded="false"
+                        aria-controls="faq6">
+
+                        ¿Qué significa atención prioritaria?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq6"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Significa que las solicitudes de los planes
+                            Profesional y Empresarial reciben
+                            <strong>prioridad de atención</strong>
+                            frente a solicitudes correspondientes a
+                            servicios sin prioridad.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 7 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq7"
+                        aria-expanded="false"
+                        aria-controls="faq7">
+
+                        ¿El mantenimiento preventivo está incluido?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq7"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Los planes Profesional y Empresarial incluyen
+                            revisión periódica de equipos y planificación
+                            de mantenimiento. Los trabajos físicos de
+                            mantenimiento pueden requerir una cotización
+                            adicional dependiendo de las necesidades
+                            detectadas.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 8 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq8"
+                        aria-expanded="false"
+                        aria-controls="faq8">
+
+                        ¿Cómo se realizan los pagos?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq8"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Puedes realizar el pago mediante
+                            <strong>transferencia bancaria</strong> o
+                            <strong>depósito</strong>.
+                            Para otros métodos de pago disponibles,
+                            puedes consultarnos directamente.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 9 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq9"
+                        aria-expanded="false"
+                        aria-controls="faq9">
+
+                        ¿Puedo contratar el plan de forma mensual o anual?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq9"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Sí. Todos los planes cuentan con modalidad
+                            <strong>mensual y anual</strong>.
+                            La modalidad anual cuenta con un precio
+                            preferencial.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 10 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq10"
+                        aria-expanded="false"
+                        aria-controls="faq10">
+
+                        ¿Puedo cancelar el servicio?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq10"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Las condiciones de contratación, renovación y
+                            cancelación se establecen en los
+                            <strong>Términos y Condiciones</strong>
+                            correspondientes al servicio.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 11 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq11"
+                        aria-expanded="false"
+                        aria-controls="faq11">
+
+                        ¿Atienden empresas fuera de Puebla?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq11"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Sí. El soporte TI remoto permite atender
+                            empresas independientemente de su ubicación,
+                            siempre que la incidencia pueda resolverse
+                            mediante herramientas remotas.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FAQ 12 -->
+
+                <div class="faq-item">
+
+                    <button class="faq-question"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq12"
+                        aria-expanded="false"
+                        aria-controls="faq12">
+
+                        ¿Qué pasa si necesito una solución que no aparece
+                        en los planes?
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </button>
+
+
+                    <div id="faq12"
+                        class="collapse">
+
+                        <div class="faq-answer">
+
+                            Podemos analizar el caso y determinar si puede
+                            resolverse mediante el servicio TI o si requiere
+                            un servicio adicional. En ese caso te
+                            proporcionaremos una cotización antes de realizar
+                            el trabajo.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-4" style="text-align: center;">
+                    <a class="navbar-brand" href="#"><img src="Img/Logo.webp" alt="IC DigTec" class="footer-logo"></a>
+                    <p class="footer-slogan">Soluciones Digitales y Técnicas</p>
+                    <p>Desarrollamos soluciones digitales y técnicas para personas, emprendedores y negocios.</p>
+                    <div class="hero-social">
+                        <div class="hero-social-links">
+                            <a href="https://www.facebook.com/share/17rW117wuU/" target="_blank" aria-label="Facebook" class="hero-social-link"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.tiktok.com/@ic.digtec?_r=1&_t=ZS-96plXD4ueBc" target="_blank" aria-label="TikTok" class="hero-social-link"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20DigTec*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20" target="_blank" aria-label="WhatsApp" class="hero-social-link"><i class="bi bi-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-2">
+                    <h5>Navegación</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                        <li><a href="para-empresas.html"><i class="bi bi-chevron-right"></i> Para Empresas</a></li>
+                        <li><a href="#portafolio"><i class="bi bi-chevron-right"></i> Portafolio</a></li>
+                        <li><a href="#preguntas-respuestas"><i class="bi bi-chevron-right"></i> P & R</a></li>
+                        <li><a href="#contacto"><i class="bi bi-chevron-right"></i> Contacto</a></li>
+                        <li><a href="#sobre-mi"><i class="bi bi-chevron-right"></i> Sobre Mí</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5>Servicios</h5>
+                    <ul class="footer-links">
+                        <li><a href="#servicios-digitales"><i class="bi bi-display"></i> Servicios Digitales</a></li>
+                        <li><a href="#planes-mensuales"><i class="bi bi-calendar-range"></i> Planes Mensuales Digitales</a></li>
+                        <li><a href="#sitios-web"><i class="bi bi-window"></i> Sitios Web por Suscripción</a></li>
+                        <li><a href="#servicios-presenciales"><i class="bi bi-gear"></i> Servicios Técnicos Presenciales</a></li>
+                        <li><a href="#servicios-remotos"><i class="bi bi-headset"></i> Servicios Técnicos Remotos</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h5>Enlaces</h5>
+                    <ul class="footer-links">
+                        <li><a href="aviso-privacidad.html"><i class="bi bi-chevron-right"></i> Aviso de Privacidad</a></li>
+                        <li><a href="quejas-sugerencias.html"><i class="bi bi-chevron-right"></i> Quejas y Sugerencias</a></li>
+                        <li><a href="terminos-condiciones.html"><i class="bi bi-chevron-right"></i> Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+                <p class="copyright">2026 IC DigTec. Todos los derechos reservados. Sitio desarrollado por IC DigTec.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- MODAL SELECCIÓN DE PAÍS -->
+    <div class="modal fade" id="modalPais" tabindex="-1" aria-labelledby="modalPaisLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style=" background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:45px; overflow:hidden; color:var(--text);">
+
+                <div class="modal-header border-0 text-center d-block pt-4 px-4">
+
+                    <div class="service-icon mb-3"><i class="bi bi-globe-americas"></i></div>
+                    <h4 id="modalPaisLabel" class="fw-bold mb-2">Selecciona tu país</h4>
+                    <p class="mb-0" style="color:var(--text-secondary); line-height:1.7;">
+                        Para una experiencia personalizada y eficiente, por favor, selecciona tu país:
+                    </p>
+
+                </div>
+
+                <div class="modal-body px-4 pb-4">
+
+                    <div class="d-grid gap-3">
+
+                        <!-- ESPAÑA -->
+                        <button type="button" class="btn btn-primary btn-pais" data-pais="España" data-moneda="EUR">
+                            <span><i class="fi fi-es"></i> España</span>
+                        </button>
+
+                        <!-- ESTADOS UNIDOS -->
+                        <button type="button" class="btn btn-primary btn-pais" data-pais="Estados Unidos" data-moneda="USD">
+                            <span><i class="fi fi-us"></i> Estados Unidos</span>
+                        </button>
+
+                        <!-- MÉXICO -->
+                        <button type="button" class="btn btn-primary btn-pais" data-pais="México" data-moneda="MXN">
+                            <span><i class="fi fi-mx"></i> México</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
