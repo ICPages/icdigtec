@@ -49,6 +49,11 @@ img { max-width: 100%; }
 
 button, input, textarea { font-family: inherit; }
 
+.span-resaltar {
+    display: inline-block;
+    color: var(--primary-light);
+}
+
 /* SCROLLBAR */
 
 ::-webkit-scrollbar { width: 8px; }
@@ -425,6 +430,1163 @@ button, input, textarea { font-family: inherit; }
 @keyframes heroMarquee {
     from { transform: translateX(0); }
     to { transform: translateX(calc(-50% - 17.5px)); }
+}
+
+/* ==========================================
+   CARDS - TIPOS DE CLIENTE
+========================================== */
+
+.client-section {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ENCABEZADO */
+
+.client-section-title {
+    margin-bottom: 10px;
+}
+
+.client-section-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--primary-light);
+
+    font-size: .72rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.client-card {
+    position: relative;
+
+    display: block;
+
+    height: 100%;
+    min-height: 390px;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-card);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* ==========================================
+   GRID TECNOLÓGICO
+========================================== */
+
+.client-card-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .0;
+
+    background-image:
+        linear-gradient(
+            rgba(28,181,255,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(28,181,255,.08) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    mask-image:
+        radial-gradient(
+            circle at 85% 15%,
+            black,
+            transparent 65%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle at 85% 15%,
+            black,
+            transparent 65%
+        );
+
+    transition:
+        opacity .6s ease,
+        transform .8s ease;
+}
+
+
+/* ==========================================
+   GLOW
+========================================== */
+
+.client-card-glow {
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    top: -100px;
+    right: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(28,181,255,.22) 0%,
+            rgba(13,110,253,.10) 35%,
+            transparent 70%
+        );
+
+    filter: blur(10px);
+
+    opacity: .5;
+
+    transition:
+        transform .7s ease,
+        opacity .5s ease;
+}
+
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+
+.client-card-content {
+
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ==========================================
+   PARTE SUPERIOR
+========================================== */
+
+.client-card-top {
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* ICONO */
+
+.client-card-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(13,110,253,.10);
+
+    border: 1px solid rgba(28,181,255,.14);
+
+    color: var(--primary-light);
+
+    font-size: 1.45rem;
+
+    transition:
+        transform .5s ease,
+        background .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* NÚMERO */
+
+.client-card-number {
+
+    color: rgba(255,255,255,.25);
+
+    font-size: .75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    transition:
+        color .4s ease;
+}
+
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.client-card-info {
+
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+
+.client-card-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--primary-light);
+
+    font-size: .68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    text-transform: uppercase;
+}
+
+
+.client-card-info h3 {
+
+    margin-bottom: 15px;
+
+    color: var(--text);
+
+    font-size: 1.55rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    transition:
+        transform .4s ease;
+}
+
+
+.client-card-info p {
+
+    max-width: 360px;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: .88rem;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   BOTÓN / FLECHA
+========================================== */
+
+.client-card-action {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border-light);
+
+    color: var(--text-secondary);
+
+    font-size: .8rem;
+
+    font-weight: 600;
+
+    transition:
+        color .4s ease;
+}
+
+
+.client-card-arrow {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid var(--border-light);
+
+    color: var(--primary-light);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.client-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(28,181,255,.35);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.30),
+        0 0 35px rgba(13,110,253,.08);
+}
+
+
+.client-card:hover .client-card-grid {
+
+    opacity: 1;
+
+    transform: scale(1.08);
+}
+
+
+.client-card:hover .client-card-glow {
+
+    opacity: 1;
+
+    transform: scale(1.35);
+}
+
+
+.client-card:hover .client-card-icon {
+
+    transform:
+        translateY(-4px)
+        rotate(-4deg);
+
+    background: rgba(13,110,253,.18);
+
+    box-shadow:
+        0 0 30px rgba(28,181,255,.18);
+}
+
+
+.client-card:hover .client-card-number {
+
+    color: rgba(28,181,255,.65);
+}
+
+
+.client-card:hover .client-card-info h3 {
+
+    transform: translateX(4px);
+}
+
+
+.client-card:hover .client-card-action {
+
+    color: var(--text);
+}
+
+
+.client-card:hover .client-card-arrow {
+
+    transform:
+        translate(4px,-4px)
+        rotate(5deg);
+
+    background: rgba(28,181,255,.12);
+
+    border-color: rgba(28,181,255,.35);
+
+    box-shadow:
+        0 0 25px rgba(28,181,255,.15);
+}
+
+
+/* ==========================================
+   CARD DESTACADA
+========================================== */
+
+.client-card-featured {
+
+    border-color: rgba(28,181,255,.18);
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(13,110,253,.12),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(28,181,255,.06),
+            rgba(255,255,255,.015)
+        );
+}
+
+
+.client-card-featured::before {
+
+   
+
+    position: absolute;
+
+    top: 22px;
+    right: 22px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: rgba(28,181,255,.10);
+
+    border: 1px solid rgba(28,181,255,.18);
+
+    color: var(--primary-light);
+
+    font-size: .58rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    opacity: .9;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 767px) {
+
+    .client-card {
+
+        min-height: 350px;
+
+        padding: 28px;
+    }
+
+    .client-card-info h3 {
+
+        font-size: 1.35rem;
+    }
+
+}
+
+/* ==========================================
+   OTROS PROYECTOS
+========================================== */
+
+.projects-section {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.projects-section-title {
+    margin-bottom: 10px;
+}
+
+
+.projects-section-tag {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary-light);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   PROJECT CARD
+========================================== */
+
+.project-card {
+
+    position: relative;
+
+    display: block;
+
+    height: 100%;
+
+    min-height: 360px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid var(--border-light);
+
+    border-radius: var(--radius-card);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* Glow */
+
+.project-card-glow {
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -110px;
+    right: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(28,181,255,.20),
+            rgba(13,110,253,.08) 40%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+    opacity: .45;
+
+    transition:
+        transform .7s ease,
+        opacity .5s ease;
+}
+
+
+/* Contenido */
+
+.project-card-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ==========================================
+   TOP
+========================================== */
+
+.project-card-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+/* Icono */
+
+.project-card-icon {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(13,110,253,.10);
+
+    border: 1px solid rgba(28,181,255,.14);
+
+    color: var(--primary-light);
+
+    font-size: 1.4rem;
+
+    transition:
+        transform .5s ease,
+        background .5s ease,
+        box-shadow .5s ease;
+}
+
+
+/* Estado */
+
+.project-card-status {
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid var(--border-light);
+
+    color: var(--text-muted);
+
+    font-size: .58rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.project-card-info {
+
+    margin-top: auto;
+
+    margin-bottom: 28px;
+}
+
+
+.project-card-category {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: var(--primary-light);
+
+    font-size: .67rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+
+    text-transform: uppercase;
+}
+
+
+.project-card-info h3 {
+
+    margin-bottom: 14px;
+
+    color: var(--text);
+
+    font-size: 1.55rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    transition:
+        transform .4s ease;
+}
+
+
+.project-card-info p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: .86rem;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   ACTION
+========================================== */
+
+.project-card-action {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border-light);
+
+    color: var(--text-secondary);
+
+    font-size: .78rem;
+
+    font-weight: 600;
+
+    transition:
+        color .4s ease;
+}
+
+
+.project-card-arrow {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid var(--border-light);
+
+    color: var(--primary-light);
+
+    transition:
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        background .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.project-card:hover {
+
+    transform: translateY(-9px);
+
+    border-color: rgba(28,181,255,.35);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.30),
+        0 0 35px rgba(13,110,253,.08);
+}
+
+
+.project-card:hover .project-card-glow {
+
+    opacity: 1;
+
+    transform: scale(1.4);
+}
+
+
+.project-card:hover .project-card-icon {
+
+    transform:
+        translateY(-4px)
+        rotate(-4deg);
+
+    background: rgba(13,110,253,.18);
+
+    box-shadow:
+        0 0 30px rgba(28,181,255,.18);
+}
+
+
+.project-card:hover .project-card-info h3 {
+
+    transform: translateX(4px);
+}
+
+
+.project-card:hover .project-card-action {
+
+    color: var(--text);
+}
+
+
+.project-card:hover .project-card-arrow {
+
+    transform:
+        translate(4px,-4px)
+        rotate(5deg);
+
+    background: rgba(28,181,255,.12);
+
+    border-color: rgba(28,181,255,.35);
+
+    box-shadow:
+        0 0 25px rgba(28,181,255,.15);
+}
+
+
+
+/* ==========================================
+   EMPRESAS QUE TRABAJAN CON NOSOTROS
+========================================== */
+
+.clients-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(13,110,253,.025),
+            transparent
+        );
+}
+
+
+.clients-section-title {
+
+    margin-bottom: 10px;
+}
+
+
+.clients-section-tag {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--primary-light);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   CONTENEDOR DE LOGOS
+========================================== */
+
+.clients-logos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* ==========================================
+   CLIENT LOGO CARD
+========================================== */
+
+.client-logo-card {
+
+    min-height: 145px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 25px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border: 1px solid var(--border-light);
+
+    border-radius: 30px;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.client-logo-card:hover {
+
+    transform: translateY(-5px);
+
+    background:
+        rgba(28,181,255,.035);
+
+    border-color:
+        rgba(28,181,255,.30);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.20);
+}
+
+
+/* ==========================================
+   PLACEHOLDER / ICONO
+========================================== */
+
+.client-logo-placeholder {
+
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(13,110,253,.08);
+
+    border:
+        1px solid rgba(28,181,255,.12);
+
+    color:
+        var(--primary-light);
+
+    font-size: 1.6rem;
+
+    transition:
+        transform .4s ease,
+        background .4s ease;
+}
+
+
+.client-logo-card:hover
+.client-logo-placeholder {
+
+    transform: scale(1.05);
+
+    background:
+        rgba(13,110,253,.14);
+}
+
+
+/* ==========================================
+   LOGO REAL
+========================================== */
+
+.client-logo-image {
+
+    width: 68px;
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid var(--border-light);
+}
+
+
+.client-logo-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* ==========================================
+   INFORMACIÓN CLIENTE
+========================================== */
+
+.client-logo-info h4 {
+
+    margin: 0 0 6px;
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+
+.client-logo-info span {
+
+    color: var(--text-muted);
+
+    font-size: .72rem;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.clients-cta {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 45px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid var(--border-light);
+}
+
+
+.clients-cta p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: .85rem;
+}
+
+
+.clients-cta .btn {
+
+    padding:
+        10px 22px;
+
+    font-size: .78rem;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 991px) {
+
+    .clients-logos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 767px) {
+
+    .project-card {
+
+        min-height: 340px;
+
+        padding: 28px;
+    }
+
+
+    .project-card-info h3 {
+
+        font-size: 1.35rem;
+    }
+
+
+    .clients-logos {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .client-logo-card {
+
+        min-height: 120px;
+
+        padding: 20px;
+    }
+
+
+    .clients-cta {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
 }
 
 /* SECCIONES */
@@ -832,7 +1994,7 @@ s {
 
 .footer-slogan { color: var(--silver); }
 
-.footer i, h5 { color: #0047CC; }
+.footer i, h5 { color: var(--primary-light); }
 
 .hero-social-links i { color: var(--text-secondary); }
 
@@ -1512,5 +2674,56 @@ s {
     .service-card { padding: 25px; }
 
     .service-card .btn { width: 100%; }
+
+}
+
+
+/* PROMOCIONES */
+.promociones-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.promocion-link {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    overflow: hidden;
+}
+
+.promocion-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down;
+    object-position: center;
+}
+
+/* INDICADORES */
+#carouselPromociones .carousel-indicators {
+    margin-bottom: 15px;
+}
+
+#carouselPromociones .carousel-indicators button {
+    width: 25px;
+    height: 4px;
+    border-radius: 10px;
+}
+
+/* TELÉFONOS */
+@media (max-width: 767px) {
+
+    .promocion-link {
+        aspect-ratio: 16 / 9;
+    }
+
+    .promocion-img {
+        object-position: center;
+    }
+
+    #carouselPromociones .carousel-control-prev,
+    #carouselPromociones .carousel-control-next {
+        width: 10%;
+    }
 
 }
