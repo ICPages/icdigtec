@@ -56,6 +56,51 @@ function actualizarPrecios() {
     });
 }
 
+/* COTIZACIÓN SOPORTE TI */
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modalCotizacion");
+    const formulario = document.getElementById("formCotizacion");
+    if (!modal || !formulario) return;
+    const inputPlan = document.getElementById("cotPlan");
+    const inputNombre = document.getElementById("cotNombre");
+    const inputCorreo = document.getElementById("cotCorreo");
+    const inputDispositivos = document.getElementById("cotDispositivos");
+    modal.addEventListener("show.bs.modal", function (event) {
+        const boton = event.relatedTarget;
+        const plan = boton?.getAttribute("data-plan") || "";
+        formulario.reset();
+        inputPlan.value = plan ? `Plan ${plan}` : "";
+    });
+    formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!formulario.checkValidity()) {
+            formulario.reportValidity();
+            return;
+        }
+        const nombre = inputNombre.value.trim();
+        const correo = inputCorreo.value.trim();
+        const plan = inputPlan.value.trim();
+        const dispositivos = Number(inputDispositivos.value);
+        if (
+            !nombre ||
+            !plan ||
+            !Number.isSafeInteger(dispositivos) ||
+            dispositivos < 1
+        ) {
+            return;
+        }
+        const mensaje =
+            `¡Hola *IC DigTec*! Me gustaría recibir cotización sobre _${plan}_ de *Soporte TI Remoto*.\n\n` +
+            `*Nombre:* ${nombre}\n` +
+            `*Correo:* ${correo || "No proporcionado"}\n` +
+            `*Plan:* ${plan}\n` +
+            `*Número de dispositivos:* ${dispositivos}`;
+        const telefono = "522221106016";
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+    });
+});
+
 /* CONTADOR 0 A 100 */
 document.addEventListener("DOMContentLoaded", function () {
     const contador = document.getElementById("contadorProyectos");
