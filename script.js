@@ -193,12 +193,35 @@ document.addEventListener("DOMContentLoaded", function () {
    COMPRAS - SERVICIOS DIGITALES
 ========================================== */
 
+
+/* REPRODUCTOR DE MUESTRA DE AUDIO */
+document.addEventListener("DOMContentLoaded", function () {
+    const boton = document.getElementById("btnMuestraAudio");
+    const audio = document.getElementById("audioVentaPescado");
+    if (!boton || !audio) return;
+    const icono = boton.querySelector("i");
+    boton.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    });
+    audio.addEventListener("play", function () {
+        icono.className = "bi bi-pause-fill";
+        boton.setAttribute("aria-label", "Pausar muestra");
+    });
+    audio.addEventListener("pause", function () {
+        icono.className = "bi bi-play-fill";
+        boton.setAttribute("aria-label", "Escuchar muestra");
+    });
+});
+
+/* FUNCIONAMIENTO DE MODAL PEDIDOS POR WHATSAPP */
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modalCompra");
     const formulario = document.getElementById("formCompra");
-
     if (!modal || !formulario) return;
-
     const productos = {
         audio: {
             nombre: "Audio publicidad",
@@ -237,19 +260,14 @@ document.addEventListener("DOMContentLoaded", function () {
             tipo: "cotizar"
         }
     };
-
     const porId = id => document.getElementById(id);
-
     const grupoOpcion = porId("grupoOpcion");
     const grupoCantidad = porId("grupoCantidad");
     const opcion = porId("compraOpcion");
     const cantidad = porId("compraCantidad");
     const total = porId("compraTotal");
     const detalle = porId("compraDetalle");
-
     let productoActivo = null;
-
-    /* MONEDA SELECCIONADA */
     function monedaActual() {
         const moneda = localStorage.getItem("moneda") || "MXN";
 
@@ -257,40 +275,29 @@ document.addEventListener("DOMContentLoaded", function () {
             ? moneda
             : "MXN";
     }
-
-    /* PRECIO DESDE EL HTML */
     function precioVisible(elemento) {
         if (!elemento) return "";
 
         return elemento.dataset[monedaActual().toLowerCase()] || "";
     }
-
-    /* VARIANTES: DURACIÓN O CANTIDAD */
     function variantes(clave) {
         return Array.from(document.querySelectorAll(
             `.precio[data-precio-producto="${clave}"][data-precio-opcion]`
         ));
     }
-
-    /* PRECIOS FIJOS */
     function precioFijo(clave, tipo) {
         return document.querySelector(
             `.precio[data-precio-producto="${clave}"][data-precio-tipo="${tipo}"]`
         );
     }
-
     function textoVariante(elemento) {
         return elemento?.closest("h5")
             ?.querySelector("span")
             ?.textContent.trim() || "";
     }
-
-    /* PRODUCTO SELECCIONADO */
     function seleccionActual() {
         const producto = productos[productoActivo];
-
         if (!producto) return null;
-
         if (
             producto.tipo === "cantidad" ||
             producto.tipo === "opciones"
@@ -298,66 +305,49 @@ document.addEventListener("DOMContentLoaded", function () {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
                 : opcion;
-
             return variantes(productoActivo)[Number(selector.value)] || null;
         }
-
         return producto.tipo === "cotizar"
             ? null
             : precioFijo(productoActivo, "actual");
     }
-
-    /* CÁLCULO DEL TOTAL */
     function actualizarTotalCompra() {
         const producto = productos[productoActivo];
-
         if (!producto) return;
-
         if (producto.tipo === "cotizar") {
             total.textContent = "A cotizar";
             detalle.textContent =
                 "Recibirás una cotización personalizada por WhatsApp.";
             return;
         }
-
         const seleccionado = seleccionActual();
         const precio = precioVisible(seleccionado);
-
         total.textContent = precio
             ? precio + (producto.tipo === "mensual" ? " /mes" : "")
             : "—";
-
         if (producto.tipo === "cantidad") {
             detalle.textContent =
                 textoVariante(seleccionado) +
                 " · Precio del paquete elegido";
-
         } else if (producto.tipo === "opciones") {
             detalle.textContent = textoVariante(seleccionado);
 
         } else if (producto.tipo === "mensual") {
             detalle.textContent =
                 "Suscripción mensual desde el precio indicado";
-
         } else {
             const anterior = precioVisible(
                 precioFijo(productoActivo, "antes")
             );
-
             const ahorro = precioVisible(
                 precioFijo(productoActivo, "ahorro")
             );
-
             detalle.textContent = `Antes ${anterior} · ${ahorro}`;
         }
     }
-
-    /* SELECTOR DE CANTIDAD O DURACIÓN */
     function actualizarOpciones() {
         const producto = productos[productoActivo];
-
         if (!producto) return;
-
         if (
             producto.tipo === "cantidad" ||
             producto.tipo === "opciones"
@@ -365,18 +355,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
                 : opcion;
-
             const seleccionAnterior = selector.value;
-
             selector.replaceChildren();
-
             variantes(productoActivo).forEach((elemento, indice) => {
                 selector.add(new Option(
                     `${textoVariante(elemento)} — ${precioVisible(elemento)}`,
                     String(indice)
                 ));
             });
-
             if (
                 seleccionAnterior !== "" &&
                 Number(seleccionAnterior) < selector.options.length
@@ -384,77 +370,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 selector.value = seleccionAnterior;
             }
         }
-
         actualizarTotalCompra();
     }
-
-    /* ABRIR MODAL */
     modal.addEventListener("show.bs.modal", function (event) {
         const clave = event.relatedTarget?.dataset.producto;
-
         if (!Object.prototype.hasOwnProperty.call(productos, clave)) {
             event.preventDefault();
             return;
         }
-
         productoActivo = clave;
         const producto = productos[clave];
-
         formulario.reset();
-
         porId("compraProducto").value = producto.nombre;
-
         porId("modalCompraTitulo").textContent =
             producto.tipo === "cotizar"
                 ? "Solicitar cotización"
                 : "Solicitar servicio";
-
         porId("compraTextoBoton").textContent =
             producto.tipo === "cotizar"
                 ? "Enviar cotización"
                 : "Enviar solicitud";
-
         grupoCantidad.hidden = producto.tipo !== "cantidad";
         grupoOpcion.hidden = producto.tipo !== "opciones";
-
         cantidad.replaceChildren();
         opcion.replaceChildren();
-
         actualizarOpciones();
     });
-
-    /* ACTUALIZAR PRECIOS */
     cantidad.addEventListener("change", actualizarTotalCompra);
     opcion.addEventListener("change", actualizarTotalCompra);
-
     document.querySelectorAll(".btn-pais").forEach(boton => {
         boton.addEventListener("click", actualizarOpciones);
     });
-
     window.addEventListener("storage", event => {
         if (event.key === "pais" || event.key === "moneda") {
             actualizarPrecios();
             actualizarOpciones();
         }
     });
-
-    /* ENVIAR PEDIDO POR WHATSAPP */
     formulario.addEventListener("submit", function (event) {
         event.preventDefault();
-
         if (!formulario.reportValidity()) return;
-
         const producto = productos[productoActivo];
         if (!producto) return;
-
         const nombre = porId("compraNombre").value.trim();
         const correo = porId("compraCorreo").value.trim();
-
         if (!nombre) return;
-
         const elegido = seleccionActual();
         const cotizacion = producto.tipo === "cotizar";
-
         const mensaje = [
             `¡Hola *IC DigTec*! Me gustaría ${cotizacion ? "recibir una cotización" : "solicitar"} de _${producto.nombre}_.`,
             "",
@@ -463,15 +425,12 @@ document.addEventListener("DOMContentLoaded", function () {
             `*País:* ${localStorage.getItem("pais") || "México"}`,
             `*Producto o plan:* ${producto.nombre}`
         ];
-
         if (producto.tipo === "cantidad") {
             mensaje.push(`*Cantidad:* ${textoVariante(elegido)}`);
         }
-
         if (producto.tipo === "opciones") {
             mensaje.push(`*Duración:* ${textoVariante(elegido)}`);
         }
-
         mensaje.push(
             `*Precio:* ${
                 cotizacion
@@ -480,7 +439,6 @@ document.addEventListener("DOMContentLoaded", function () {
                       (producto.tipo === "mensual" ? " /mes" : "")
             }`
         );
-
         if (producto.tipo === "fijo") {
             mensaje.push(
                 `*Precio anterior:* ${precioVisible(
@@ -488,15 +446,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 )}`
             );
         }
-
         if (producto.tipo === "mensual") {
             mensaje.push("*Modalidad:* Suscripción mensual");
         }
-
         const url =
             "https://wa.me/522221106016?text=" +
             encodeURIComponent(mensaje.join("\n"));
-
         window.open(url, "_blank", "noopener,noreferrer");
     });
 });
