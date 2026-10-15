@@ -817,6 +817,15 @@ path.two {
     color: var(--text-muted);
     opacity: 1;
 }
+.facebook-contenedor {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+.facebook-contenedor .fb-page {
+    flex: 0 0 auto;
+}
 
 /* FOOTER */
 
