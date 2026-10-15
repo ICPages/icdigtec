@@ -188,11 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-/* ==========================================
-   COMPRAS - SERVICIOS DIGITALES
-========================================== */
-
+/* CREADORES-Y-EMPRENDEDORES.HTML */
 
 /* REPRODUCTOR DE MUESTRA DE AUDIO */
 document.addEventListener("DOMContentLoaded", function () {
@@ -240,15 +236,15 @@ document.addEventListener("DOMContentLoaded", function () {
             tipo: "opciones"
         },
         starter: {
-            nombre: "Plan Starter",
+            nombre: "Plan Despega",
             tipo: "fijo"
         },
         business: {
-            nombre: "Plan Business",
+            nombre: "Plan Impulsa",
             tipo: "fijo"
         },
         premium: {
-            nombre: "Plan Premium",
+            nombre: "Plan Campaña",
             tipo: "fijo"
         },
         landing: {
