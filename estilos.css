@@ -1,6 +1,4 @@
-/* =====================================================================
-   GENERAL
-   ===================================================================== */
+/* GENERAL */
 
 :root {
     --primary: #0D6EFD;
@@ -102,11 +100,7 @@ button, input, textarea {
     }
 }
 
-
-
-/* =====================================================================
-   NAVBAR
-   ===================================================================== */
+/* NAVBAR */
 
 .navbar-custom {
     background: rgba(11, 15, 25, .75);
@@ -238,11 +232,7 @@ button, input, textarea {
     }
 }
 
-
-
-/* =====================================================================
-   HERO
-   ===================================================================== */
+/* HERO */
 
 .hero-section {
     min-height: 100vh;
@@ -381,6 +371,7 @@ button, input, textarea {
     object-fit: contain;
     border-radius: 12px;
 }
+
 @keyframes heroMarquee {
     from {
         transform: translateX(0);
@@ -408,11 +399,7 @@ button, input, textarea {
     }
 }
 
-
-
-/* =====================================================================
-   PROMOCIONES
-   ===================================================================== */
+/* PROMOCIONES */
 
 .promociones-section {
     width: 100%;
@@ -452,11 +439,7 @@ button, input, textarea {
     }
 }
 
-
-
-/* =====================================================================
-   TIPO DE CLIENTE
-   ===================================================================== */
+/* TIPO DE CLIENTE */
 
 .client-section {
     position: relative;
@@ -482,7 +465,6 @@ button, input, textarea {
     transition: .4s;
     backdrop-filter: blur(8px);
 }
-/* Alineación interna de las tres tarjetas de clientes */
 #clientes .service-card > div:first-child {
     display: flex;
     flex-direction: column;
@@ -600,11 +582,7 @@ path.two {
     }
 }
 
-
-
-/* =====================================================================
-   SERVICIO DESTACADO
-   ===================================================================== */
+/* SERVICIO DESTACADO */
 
 .tabla-planes-ti-wrapper {
     margin-top: 35px;
@@ -682,11 +660,7 @@ path.two {
     }
 }
 
-
-
-/* =====================================================================
-   P & R
-   ===================================================================== */
+/* P & R */
 
 .faq-container {
     max-width: 950px;
@@ -802,11 +776,7 @@ path.two {
     }
 }
 
-
-
-/* =====================================================================
-   CONTACTO
-   ===================================================================== */
+/* CONTACTO */
 
 .contact-info, .contact-form {
     background: var(--card);
@@ -848,11 +818,7 @@ path.two {
     opacity: 1;
 }
 
-
-
-/* =====================================================================
-   FOOTER
-   ===================================================================== */
+/* FOOTER */
 
 .footer {
     background: #080b14;
@@ -895,11 +861,7 @@ path.two {
     margin: 0;
 }
 
-
-
-/* =====================================================================
-   MODAL
-   ===================================================================== */
+/* MODAL */
 
 #modalPais .modal-content {
     background: var(--card);
@@ -925,4 +887,171 @@ path.two {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+
+
+/* ==========================================
+   CATÁLOGO DE SERVICIOS Y PLANES
+========================================== */
+
+.catalogo-section .service-card > :first-child {
+    flex: 1;
+}
+
+.catalogo-section .service-card > :last-child:not(:first-child) {
+    margin-top: auto;
+}
+
+.catalogo-section .service-card .service-buttons {
+    margin-top: 18px;
+}
+
+/* PRECIOS DE SERVICIOS */
+.catalogo-section .price-title {
+    color: var(--primary-light);
+    font-size: .9rem;
+    font-weight: 700;
+    border-top: 1px solid var(--border-light);
+    padding-top: 14px;
+    margin-bottom: 8px;
+}
+
+.catalogo-section .service-price h5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 0;
+    margin: 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.catalogo-section .service-price strong {
+    color: var(--text);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.catalogo-section .precio-moneda-nota {
+    color: var(--text-muted);
+}
+
+/* PLANES DE CONTENIDO */
+.catalogo-section .plan-featured {
+    border-color: rgba(28, 181, 255, .35);
+}
+
+.catalogo-section .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 20px;
+}
+
+.catalogo-section .plan-features li {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.catalogo-section .plan-features i {
+    color: var(--primary-light);
+    flex-shrink: 0;
+}
+
+.catalogo-section .plan-footer {
+    padding-top: 15px;
+    border-top: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.catalogo-section .plan-old-price {
+    color: var(--text-muted);
+    font-size: .85rem;
+}
+
+.catalogo-section .plan-old-price s {
+    display: inline;
+    width: auto;
+    margin: 0;
+    font-size: inherit;
+}
+
+.catalogo-section .plan-new-price,
+.catalogo-section .web-price strong {
+    color: var(--primary-light);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.catalogo-section .plan-savings {
+    color: var(--text-secondary);
+    font-size: .85rem;
+}
+
+/* SITIOS WEB */
+.catalogo-section .web-price {
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+    text-align: center;
+}
+
+.catalogo-section .web-price small {
+    color: var(--text-secondary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 575.98px) {
+    .catalogo-section .service-price h5 {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ==========================================
+   MODAL DE COMPRA
+========================================== */
+
+#modalCompra .form-control[readonly] {
+    color: var(--primary-light);
+}
+
+#modalCompra .form-select {
+    color-scheme: dark;
+}
+
+#modalCompra .form-text,
+#modalCompra .compra-nota {
+    color: var(--text-muted);
+}
+
+#modalCompra .resumen-compra {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    background: var(--bg-secondary);
+}
+
+#modalCompra .resumen-compra strong {
+    color: var(--primary-light);
+    font-weight: 700;
+}
+
+#modalCompra .resumen-compra small {
+    flex-basis: 100%;
+    color: var(--text-secondary);
+}
+
+#modalCompra .resumen-compra small:empty {
+    display: none;
 }
