@@ -1007,7 +1007,20 @@ path.two {
 /* PLANES */
 
 .catalogo-section .plan-featured {
-    border-color: rgba(28, 181, 255, .35);
+    border: 2px solid var(--primary-light);
+}
+.mas-vendido-titulo {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-light);
+    color: #000;
+    font-size: .85rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 .catalogo-section .plan-features {
     list-style: none;
@@ -1026,8 +1039,7 @@ path.two {
     flex-shrink: 0;
 }
 .catalogo-section .plan-footer {
-    padding-top: 15px;
-    border-top: 1px solid var(--border-light);
+    padding-top: 10px;
     text-align: center;
 }
 .catalogo-section .plan-old-price {
