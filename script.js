@@ -213,6 +213,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.querySelectorAll('[data-bs-toggle="popover"]').forEach((elemento) => {
+    bootstrap.Popover.getOrCreateInstance(elemento);
+});
+
 /* FUNCIONAMIENTO DE MODAL PEDIDOS POR WHATSAPP */
 document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modalCompra");
