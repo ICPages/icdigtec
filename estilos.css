@@ -1060,16 +1060,58 @@ path.two {
     color: var(--text-secondary);
     font-size: .85rem;
 }
+.click-aqui {
+    color: #fff;
+    text-decoration: none;
+}
+.click-aqui:hover {
+    color: #1CB5FF;
+    text-decoration: none;
+}
 
 /* SITIOS WEB Y CHATBOT */
 
 .catalogo-section .web-price {
-    border-top: 1px solid var(--border-light);
-    padding-top: 16px;
+    padding-top: 10px;
     text-align: center;
 }
 .catalogo-section .web-price small {
     color: var(--text-secondary);
+}
+.info-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0 4px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: help;
+    transition: color .3s ease;
+}
+.info-trigger i {
+    margin: 0;
+    font-size: .95rem;
+}
+.info-trigger:hover, .info-trigger:focus-visible {
+    color: var(--primary-light);
+}
+.popover {
+    --bs-popover-bg: var(--card);
+    --bs-popover-border-color: var(--border-light);
+    --bs-popover-body-color: var(--text-secondary);
+    --bs-popover-max-width: 300px;
+
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .25);
+}
+.popover-body {
+    font-family: 'Poppins', sans-serif;
+    font-size: .82rem;
+    line-height: 1.6;
+    padding: 14px 16px;
 }
 
 @media (max-width: 575.98px) {
