@@ -56,51 +56,6 @@ function actualizarPrecios() {
     });
 }
 
-/* COTIZACIÓN SOPORTE TI */
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("modalCotizacion");
-    const formulario = document.getElementById("formCotizacion");
-    if (!modal || !formulario) return;
-    const inputPlan = document.getElementById("cotPlan");
-    const inputNombre = document.getElementById("cotNombre");
-    const inputCorreo = document.getElementById("cotCorreo");
-    const inputDispositivos = document.getElementById("cotDispositivos");
-    modal.addEventListener("show.bs.modal", function (event) {
-        const boton = event.relatedTarget;
-        const plan = boton?.getAttribute("data-plan") || "";
-        formulario.reset();
-        inputPlan.value = plan ? `Plan ${plan}` : "";
-    });
-    formulario.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!formulario.checkValidity()) {
-            formulario.reportValidity();
-            return;
-        }
-        const nombre = inputNombre.value.trim();
-        const correo = inputCorreo.value.trim();
-        const plan = inputPlan.value.trim();
-        const dispositivos = Number(inputDispositivos.value);
-        if (
-            !nombre ||
-            !plan ||
-            !Number.isSafeInteger(dispositivos) ||
-            dispositivos < 1
-        ) {
-            return;
-        }
-        const mensaje =
-            `¡Hola *IC DigTec*! Me gustaría recibir cotización sobre _${plan}_ de *Soporte TI Remoto*.\n\n` +
-            `*Nombre:* ${nombre}\n` +
-            `*Correo:* ${correo || "No proporcionado"}\n` +
-            `*Plan:* ${plan}\n` +
-            `*Número de dispositivos:* ${dispositivos}`;
-        const telefono = "522221106016";
-        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-    });
-});
-
 /* CONTADOR 0 A 100 */
 document.addEventListener("DOMContentLoaded", function () {
     const contador = document.getElementById("contadorProyectos");
@@ -150,6 +105,71 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     requestAnimationFrame(animarCalificacion);
+});
+
+/* SECCIONES DISPONIBLES ÚNICAMENTE EN MÉXICO */
+document.addEventListener("DOMContentLoaded", function () {
+    const secciones = document.querySelectorAll(".solo-mexico");
+    if (!secciones.length) return;
+    function actualizarSeccionesMexico(monedaSeleccionada) {
+        const moneda = monedaSeleccionada || localStorage.getItem("moneda") || "MXN";
+        secciones.forEach(seccion => {
+            seccion.classList.toggle("d-none", moneda !== "MXN");
+        });
+    }
+    actualizarSeccionesMexico();
+    document.querySelectorAll(".btn-pais").forEach(boton => {
+        boton.addEventListener("click", function () {
+            actualizarSeccionesMexico(this.dataset.moneda);
+        });
+    });
+    window.addEventListener("storage", function (event) {
+        if (event.key === "moneda") {
+            actualizarSeccionesMexico();
+        }
+    });
+});
+
+/* COTIZACIÓN SOPORTE TI */
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modalCotizacion");
+    const formulario = document.getElementById("formCotizacion");
+    if (!modal || !formulario) return;
+    const inputPlan = document.getElementById("cotPlan");
+    const inputNombre = document.getElementById("cotNombre");
+    const inputCorreo = document.getElementById("cotCorreo");
+    const inputDispositivos = document.getElementById("cotDispositivos");
+    modal.addEventListener("show.bs.modal", function (event) {
+        const boton = event.relatedTarget;
+        const plan = boton?.getAttribute("data-plan") || "";
+        formulario.reset();
+        inputPlan.value = plan ? `Plan ${plan}` : "";
+    });
+    formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!formulario.checkValidity()) {
+            formulario.reportValidity();
+            return;
+        }
+        const nombre = inputNombre.value.trim();
+        const correo = inputCorreo.value.trim();
+        const plan = inputPlan.value.trim();
+        const dispositivos = Number(inputDispositivos.value);
+        if (
+            !nombre || !plan || !Number.isSafeInteger(dispositivos) || dispositivos < 1
+        ) {
+            return;
+        }
+        const mensaje =
+            `¡Hola *IC DigTec*! Me gustaría recibir cotización sobre _${plan}_ de *Soporte TI Remoto*.\n\n` +
+            `*Nombre:* ${nombre}\n` +
+            `*Correo:* ${correo || "No proporcionado"}\n` +
+            `*Plan:* ${plan}\n` +
+            `*Número de dispositivos:* ${dispositivos}`;
+        const telefono = "522221106016";
+        const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+    });
 });
 
 /* P & R*/
@@ -248,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tipo: "fijo"
         },
         premium: {
-            nombre: "Plan Campaña",
+            nombre: "Plan Promociona",
             tipo: "fijo"
         },
         landing: {
@@ -258,6 +278,14 @@ document.addEventListener("DOMContentLoaded", function () {
         chatbot: {
             nombre: "Chatbot para tu sitio",
             tipo: "cotizar"
+        },
+        merch: {
+            nombre: "Paquete Merch",
+            tipo: "fijo"
+        },
+        campana: {
+            nombre: "Paquete Campaña",
+            tipo: "fijo"
         }
     };
     const porId = id => document.getElementById(id);
@@ -270,14 +298,15 @@ document.addEventListener("DOMContentLoaded", function () {
     let productoActivo = null;
     function monedaActual() {
         const moneda = localStorage.getItem("moneda") || "MXN";
-
         return ["MXN", "EUR", "USD"].includes(moneda)
             ? moneda
             : "MXN";
     }
     function precioVisible(elemento) {
         if (!elemento) return "";
-
+        if (productoActivo === "merch" || productoActivo === "campana") {
+            return elemento.dataset.mxn || "";
+        }
         return elemento.dataset[monedaActual().toLowerCase()] || "";
     }
     function variantes(clave) {
@@ -299,8 +328,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const producto = productos[productoActivo];
         if (!producto) return null;
         if (
-            producto.tipo === "cantidad" ||
-            producto.tipo === "opciones"
+            producto.tipo === "cantidad" || producto.tipo === "opciones"
         ) {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
@@ -316,8 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!producto) return;
         if (producto.tipo === "cotizar") {
             total.textContent = "A cotizar";
-            detalle.textContent =
-                "Recibirás una cotización personalizada por WhatsApp.";
+            detalle.textContent = "Recibirás una cotización personalizada por WhatsApp.";
             return;
         }
         const seleccionado = seleccionActual();
@@ -333,24 +360,32 @@ document.addEventListener("DOMContentLoaded", function () {
             detalle.textContent = textoVariante(seleccionado);
 
         } else if (producto.tipo === "mensual") {
-            detalle.textContent =
-                "Suscripción mensual desde el precio indicado";
+            detalle.textContent = "Suscripción mensual desde el precio indicado";
         } else {
-            const anterior = precioVisible(
-                precioFijo(productoActivo, "antes")
+            const anticipo = precioVisible(
+                precioFijo(productoActivo, "anticipo")
             );
-            const ahorro = precioVisible(
-                precioFijo(productoActivo, "ahorro")
-            );
-            detalle.textContent = `Antes ${anterior} · ${ahorro}`;
+            if (anticipo) {
+                detalle.textContent = anticipo;
+            } else {
+                const anterior = precioVisible(
+                    precioFijo(productoActivo, "antes")
+                );
+                const ahorro = precioVisible(
+                    precioFijo(productoActivo, "ahorro")
+                );
+                detalle.textContent = [
+                    anterior ? `Antes ${anterior}` : "",
+                    ahorro
+                ].filter(Boolean).join(" · ");
+            }
         }
     }
     function actualizarOpciones() {
         const producto = productos[productoActivo];
         if (!producto) return;
         if (
-            producto.tipo === "cantidad" ||
-            producto.tipo === "opciones"
+            producto.tipo === "cantidad" || producto.tipo === "opciones"
         ) {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
@@ -382,12 +417,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const producto = productos[clave];
         formulario.reset();
         porId("compraProducto").value = producto.nombre;
-        porId("modalCompraTitulo").textContent =
-            producto.tipo === "cotizar"
+        porId("modalCompraTitulo").textContent = producto.tipo === "cotizar"
                 ? "Solicitar cotización"
                 : "Solicitar servicio";
-        porId("compraTextoBoton").textContent =
-            producto.tipo === "cotizar"
+        porId("compraTextoBoton").textContent = producto.tipo === "cotizar"
                 ? "Enviar cotización"
                 : "Enviar solicitud";
         grupoCantidad.hidden = producto.tipo !== "cantidad";
@@ -423,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `*Nombre:* ${nombre}`,
             `*Correo:* ${correo || "No proporcionado"}`,
             `*País:* ${localStorage.getItem("pais") || "México"}`,
-            `*Producto o plan:* ${producto.nombre}`
+            `*Producto:* ${producto.nombre}`
         ];
         if (producto.tipo === "cantidad") {
             mensaje.push(`*Cantidad:* ${textoVariante(elegido)}`);
@@ -440,11 +473,19 @@ document.addEventListener("DOMContentLoaded", function () {
             }`
         );
         if (producto.tipo === "fijo") {
-            mensaje.push(
-                `*Precio anterior:* ${precioVisible(
-                    precioFijo(productoActivo, "antes")
-                )}`
+            const anticipo = precioVisible(
+                precioFijo(productoActivo, "anticipo")
             );
+            const anterior = precioVisible(
+                precioFijo(productoActivo, "antes")
+            );
+            if (anticipo) {
+                mensaje.push(
+                    `*Anticipo:* ${anticipo.replace(/^Anticipo de\s*/i, "")}`
+                );
+            } else if (anterior) {
+                mensaje.push(`*Precio anterior:* ${anterior}`);
+            }
         }
         if (producto.tipo === "mensual") {
             mensaje.push("*Modalidad:* Suscripción mensual");
@@ -455,3 +496,156 @@ document.addEventListener("DOMContentLoaded", function () {
         window.open(url, "_blank", "noopener,noreferrer");
     });
 });
+
+/* MODAL PERSONALIZAR PLAYERAS Y GORRAS */
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modalPersonalizarMerch");
+    const formulario = document.getElementById("formPersonalizarMerch");
+    if (!modal || !formulario) return;
+    const porId = id => document.getElementById(id);
+    const playeras = porId("merchCantidadPlayeras");
+    const gorras = porId("merchCantidadGorras");
+    const valorPlayeras = porId("merchValorPlayeras");
+    const valorGorras = porId("merchValorGorras");
+    const totalPiezas = porId("merchTotalPiezas");
+    const avisoDiseno = porId("merchAvisoDiseno");
+    const mensajeError = porId("merchError");
+    function valorSeleccionado(nombre) {
+        return formulario.querySelector(
+            `input[name="${nombre}"]:checked`
+        )?.value || "";
+    }
+    function tallasSeleccionadas() {
+        return Array.from(
+            formulario.querySelectorAll('input[name="tallaPlayeras"]:checked')
+        ).map(input => input.value);
+    }
+    const estampados = Array.from(
+        formulario.querySelectorAll('input[name="estampadoPlayeras"]')
+    );
+    function estampadosSeleccionados() {
+        return estampados
+            .filter(input => input.checked)
+            .map(input => input.value);
+    }
+    function actualizarCompatibilidadEstampados() {
+        const pecho = estampados.find(input => input.value === "Pecho");
+        const logo = estampados.find(input => input.value === "Logo");
+        pecho.disabled = logo.checked;
+        logo.disabled = pecho.checked;
+    }
+    estampados.forEach(input => {
+        input.addEventListener("change", actualizarCompatibilidadEstampados);
+    });
+    function actualizarPersonalizador() {
+        const cantidadPlayeras = Number(playeras.value);
+        const cantidadGorras = Number(gorras.value);
+        const total = cantidadPlayeras + cantidadGorras;
+        valorPlayeras.textContent = cantidadPlayeras;
+        valorGorras.textContent = cantidadGorras;
+        totalPiezas.textContent = total;
+        const necesitaDiseno =
+            valorSeleccionado("disenoMerch") === "Necesita diseño";
+        if (necesitaDiseno && total >= 25) {
+            avisoDiseno.textContent = "¡Tu pedido incluye diseño sin costo!";
+        } else if (necesitaDiseno) {
+            avisoDiseno.textContent = "El diseño se cotiza por separado en pedidos menores a 25 piezas.";
+        } else {
+            avisoDiseno.textContent = "Diseño sin costo a partir de 25 piezas totales.";
+        }
+        if (total > 0) {
+            mensajeError.hidden = true;
+        }
+        return {
+            cantidadPlayeras,
+            cantidadGorras,
+            total
+        };
+    }
+    playeras.addEventListener("input", actualizarPersonalizador);
+    gorras.addEventListener("input", actualizarPersonalizador);
+    formulario.querySelectorAll('input[name="disenoMerch"]').forEach(radio => {
+        radio.addEventListener("change", actualizarPersonalizador);
+    });
+    modal.addEventListener("show.bs.modal", function () {
+        formulario.reset();
+        mensajeError.hidden = true;
+        actualizarCompatibilidadEstampados();
+        actualizarPersonalizador();
+    });
+    formulario.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!formulario.reportValidity()) return;
+        const datos = actualizarPersonalizador();
+        if (datos.total < 1) {
+            mensajeError.textContent =
+                "Selecciona al menos una playera o gorra.";
+            mensajeError.hidden = false;
+            playeras.focus();
+            return;
+        }
+        if (datos.cantidadPlayeras > 0 && estampadosSeleccionados().length === 0) {
+            mensajeError.textContent = "Selecciona al menos una ubicación de estampado para las playeras.";
+            mensajeError.hidden = false;
+            estampados[0].focus();
+            return;
+        }
+        if (datos.cantidadPlayeras > 0 && tallasSeleccionadas().length === 0) {
+            mensajeError.textContent = "Selecciona al menos una talla para las playeras.";
+            mensajeError.hidden = false;
+            formulario.querySelector('input[name="tallaPlayeras"]').focus();
+            return;
+        }
+        mensajeError.hidden = true;
+        const nombre = porId("merchNombre").value.trim();
+        const correo = porId("merchCorreo").value.trim();
+        const tieneDiseno = valorSeleccionado("disenoMerch");
+        const mensaje = [
+            "¡Hola *IC DigTec*! Quiero solicitar una cotización de playeras y gorras personalizadas.",
+            "",
+            `*Nombre:* ${nombre}`,
+            `*Correo:* ${correo || "No proporcionado"}`,
+            "",
+            "*DETALLES DEL PEDIDO*"
+        ];
+        if (datos.cantidadPlayeras > 0) {
+            mensaje.push(
+                "",
+                "*PLAYERAS*",
+                `Cantidad: ${datos.cantidadPlayeras}`,
+                `Color: ${valorSeleccionado("colorPlayeras")}`,
+                `Estampado: ${estampadosSeleccionados().join(" + ")}`,
+                `Tallas: ${tallasSeleccionadas().join(" + ")}`
+            );
+        }
+        if (datos.cantidadGorras > 0) {
+            mensaje.push(
+                "",
+                "*GORRAS*",
+                `Cantidad: ${datos.cantidadGorras}`,
+                `Color: ${valorSeleccionado("colorGorras")}`
+            );
+        }
+        mensaje.push(
+            "",
+            `*Total de piezas:* ${datos.total}`,
+            `*Diseño:* ${tieneDiseno}`
+        );
+        if (tieneDiseno === "Necesita diseño") {
+            mensaje.push(
+                datos.total >= 25
+                    ? "*Costo del diseño:* Sin costo"
+                    : "*Costo del diseño:* A cotizar"
+            );
+        }
+        mensaje.push(
+            "",
+            "Quedo pendiente de la cotización. ¡Gracias!"
+        );
+        const url = "https://wa.me/522221106016?text=" +
+            encodeURIComponent(mensaje.join("\n"));
+        window.open(url, "_blank", "noopener,noreferrer");
+    });
+    actualizarPersonalizador();
+});
+
