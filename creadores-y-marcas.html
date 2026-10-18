@@ -824,8 +824,6 @@
     </div>
 </footer>
 
-
-
 <!-- MODALES DEL SITIO -->
 
 <!-- MODAL SELECCIÓN DE PAÍS -->
@@ -944,64 +942,36 @@
     </div>
 </div>
 
-
 <!-- MODAL PERSONALIZAR PLAYERAS Y GORRAS -->
-
-<!-- MODAL PERSONALIZAR PLAYERAS Y GORRAS -->
-<div class="modal fade" id="modalPersonalizarMerch"
-     tabindex="-1"
-     aria-labelledby="modalPersonalizarMerchTitulo"
-     aria-hidden="true">
-
+<div class="modal fade" id="modalPersonalizarMerch" tabindex="-1" aria-labelledby="modalPersonalizarMerchTitulo" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content merch-modal">
-
             <form id="formPersonalizarMerch">
 
                 <div class="modal-header border-0 text-center d-block pt-4 px-4 position-relative">
-                    <button type="button"
-                            class="btn-close btn-close-white position-absolute top-0 end-0 m-4"
-                            data-bs-dismiss="modal"
-                            aria-label="Cerrar"></button>
-
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-4" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     <i class="bi bi-palette service-icon" aria-hidden="true"></i>
-
-                    <h4 id="modalPersonalizarMerchTitulo" class="fw-bold mb-2">
-                        Personaliza tu pedido
-                    </h4>
-
-                    <p class="mb-0" style="color:var(--text-secondary);">
-                        Elige tus prendas y solicita una cotización personalizada.
-                    </p>
+                    <h4 id="modalPersonalizarMerchTitulo" class="fw-bold mb-2">Personaliza tu pedido</h4>
+                    <p class="mb-0" style="color:var(--text-secondary);">Elige tus prendas y solicita una cotización personalizada.</p>
                 </div>
 
                 <div class="modal-body px-4 pb-4">
 
-                    <!-- PLAYERAS -->
                     <div class="merch-bloque">
+
                         <h5><i class="bi bi-person-badge"></i> Playeras</h5>
 
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <label for="merchCantidadPlayeras" class="form-label mb-0">
-                                Cantidad
-                            </label>
-                            <output id="merchValorPlayeras" for="merchCantidadPlayeras">
-                                0
-                            </output>
+                            <label for="merchCantidadPlayeras" class="form-label mb-0">Cantidad</label>
+                            <output id="merchValorPlayeras" for="merchCantidadPlayeras">0</output>
                         </div>
 
-                        <input type="range"
-                               class="form-range"
-                               id="merchCantidadPlayeras"
-                               min="0"
-                               max="50"
-                               step="1"
-                               value="0">
+                        <input type="range" class="form-range" id="merchCantidadPlayeras" min="0" max="50" step="1" value="0">
 
                         <label class="form-label mt-3">Color</label>
 
                         <div class="merch-colores" role="group" aria-label="Color de playeras">
-                        
+
                             <label class="merch-color-option">
                                 <input type="radio" name="colorPlayeras" value="Blanco" checked>
                                 <span class="merch-color-dot" style="--swatch:#ffffff"></span>
@@ -1043,64 +1013,35 @@
                                 <span class="merch-color-dot" style="--swatch:#16a34a"></span>
                                 <span>Verde</span>
                             </label>
+
                         </div>
-                        
                         
                         <label class="form-label mt-3">Estampado</label>
                         
                         <div class="merch-opciones">
-                            <label>
-                                <input type="checkbox" name="estampadoPlayeras" value="Espalda">
-                                Espalda
-                            </label>
-                        
-                            <label>
-                                <input type="checkbox" name="estampadoPlayeras" value="Pecho">
-                                Pecho
-                            </label>
-                        
-                            <label>
-                                <input type="checkbox" name="estampadoPlayeras" value="Logo">
-                                Logo (escudo)
-                            </label>
+                            <label><input type="checkbox" name="estampadoPlayeras" value="Espalda">Espalda</label>
+                            <label><input type="checkbox" name="estampadoPlayeras" value="Pecho">Pecho</label>
+                            <label><input type="checkbox" name="estampadoPlayeras" value="Logo">Logo (escudo)</label>
                         </div>
 
                         <label class="form-label mt-3">Tallas</label>
 
                         <div class="merch-opciones">
-                            <label>
-                                <input type="checkbox" name="tallaPlayeras" value="Adulto">
-                                Adulto
-                            </label>
-                        
-                            <label>
-                                <input type="checkbox" name="tallaPlayeras" value="Niño">
-                                Niño
-                            </label>
+                            <label><input type="checkbox" name="tallaPlayeras" value="Adulto">Adulto</label>
+                            <label><input type="checkbox" name="tallaPlayeras" value="Niño">Niño</label>
                         </div>
 
                     </div>
 
-                    <!-- GORRAS -->
                     <div class="merch-bloque">
+
                         <h5><i class="bi bi-bag"></i> Gorras</h5>
 
                         <div class="d-flex justify-content-between align-items-center mb-2">
-                            <label for="merchCantidadGorras" class="form-label mb-0">
-                                Cantidad
-                            </label>
-                            <output id="merchValorGorras" for="merchCantidadGorras">
-                                0
-                            </output>
+                            <label for="merchCantidadGorras" class="form-label mb-0">Cantidad</label>
+                            <output id="merchValorGorras" for="merchCantidadGorras">0</output>
                         </div>
-
-                        <input type="range"
-                               class="form-range"
-                               id="merchCantidadGorras"
-                               min="0"
-                               max="50"
-                               step="1"
-                               value="0">
+                        <input type="range" class="form-range" id="merchCantidadGorras" min="0" max="50" step="1" value="0">
 
                         <label class="form-label mt-3">Color</label>
 
@@ -1147,105 +1088,57 @@
                                 <span class="merch-color-dot" style="--swatch:#16a34a"></span>
                                 <span>Verde</span>
                             </label>
+
                         </div>
-                        <div><p class="form-label mt-3">
-                                
-                                </p>Tallas sólo para adulto (unitalla).</span>
-                            </label></div>
+
+                        <div>
+                            <p class="form-label mt-3">Tallas sólo para adulto (unitalla).</p>
+                        </div>
+
                     </div>
 
-                    <!-- DISEÑO -->
                     <div class="merch-bloque">
                         <h5><i class="bi bi-brush"></i> Diseño</h5>
-
                         <div class="merch-opciones">
-                            <label>
-                                <input type="radio" name="disenoMerch"
-                                       value="Cuenta con diseño" checked>
-                                Cuento con diseño
-                            </label>
-
-                            <label>
-                                <input type="radio" name="disenoMerch"
-                                       value="Necesita diseño">
-                                Necesito diseño
-                            </label>
+                            <label><input type="radio" name="disenoMerch" value="Cuenta con diseño" checked>Cuento con diseño</label>
+                            <label><input type="radio" name="disenoMerch" value="Necesita diseño">Necesito diseño</label>
                         </div>
-
-                        <p class="merch-aviso-diseno mt-3 mb-0"
-                           id="merchAvisoDiseno"
-                           aria-live="polite">
-                            Diseño sin costo a partir de 25 piezas totales.
-                        </p>
+                        <p class="merch-aviso-diseno mt-3 mb-0" id="merchAvisoDiseno" aria-live="polite">Diseño sin costo a partir de 25 piezas totales.</p>
                     </div>
 
-                    <!-- RESUMEN -->
                     <div class="merch-resumen">
                         <span>Total de piezas seleccionadas</span>
                         <strong id="merchTotalPiezas">0</strong>
                     </div>
 
-                    <p id="merchError" class="merch-error" hidden>
-                        Selecciona al menos una playera o gorra.
-                    </p>
+                    <p id="merchError" class="merch-error" hidden>Selecciona al menos una playera o gorra.</p>
 
-                    <!-- DATOS DEL CLIENTE -->
                     <div class="d-grid gap-3 mt-4">
 
                         <div>
-                            <label for="merchNombre" class="form-label">
-                                Nombre *
-                            </label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="merchNombre"
-                                   name="nombre"
-                                   maxlength="100"
-                                   autocomplete="name"
-                                   placeholder="Nombre completo"
-                                   required>
+                            <label for="merchNombre" class="form-label">Nombre *</label>
+                            <input type="text" class="form-control" id="merchNombre" name="nombre" maxlength="100" autocomplete="name" placeholder="Nombre completo" required>
                         </div>
 
                         <div>
-                            <label for="merchCorreo" class="form-label">
-                                Correo (opcional)
-                            </label>
-                            <input type="email"
-                                   class="form-control"
-                                   id="merchCorreo"
-                                   name="correo"
-                                   maxlength="254"
-                                   autocomplete="email"
-                                   placeholder="correo@ejemplo.com">
+                            <label for="merchCorreo" class="form-label">Correo (opcional)</label>
+                            <input type="email" class="form-control" id="merchCorreo" name="correo" maxlength="254" autocomplete="email" placeholder="correo@ejemplo.com">
                         </div>
 
-                        <p class="compra-nota mb-0">
-                            <i class="bi bi-info-circle me-1"></i>
-                            Recibirás una cotización personalizada.
-                            El envío de la solicitud no confirma la compra.
-                        </p>
+                        <p class="compra-nota mb-0"><i class="bi bi-info-circle me-1"></i> Recibirás una cotización personalizada. El envío de la solicitud no confirma la compra.</p>
 
-                        <button type="submit" class="btn btn-primary btn-custom">
-                            <i class="bi bi-whatsapp me-1"></i>
-                            Solicitar cotización
-                        </button>
+                        <button type="submit" class="btn btn-primary btn-custom"><i class="bi bi-whatsapp me-1"></i> Solicitar cotización</button>
 
-                        <button type="button"
-                                class="btn btn-outline-light btn-custom"
-                                data-bs-dismiss="modal">
-                            Cancelar
-                        </button>
+                        <button type="button" class="btn btn-outline-light btn-custom" data-bs-dismiss="modal">Cancelar</button>
+
                     </div>
 
                 </div>
+
             </form>
         </div>
     </div>
 </div>
-
-
-
-
 
 <!-- SCRIPT'S DEL SITIO -->
 
