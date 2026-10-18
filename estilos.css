@@ -1153,3 +1153,170 @@ path.two {
 #modalCompra .resumen-compra small:empty {
     display: none;
 }
+
+
+
+
+
+/* MODAL PERSONALIZAR MERCH */
+.merch-modal {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border-light);
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.merch-modal .modal-body {
+    scrollbar-width: thin;
+}
+
+.merch-bloque {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: 22px;
+    padding: 20px;
+    margin-top: 18px;
+}
+
+.merch-bloque h5 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.merch-bloque h5 i {
+    color: var(--primary-light);
+    margin-right: 8px;
+}
+
+.merch-bloque output {
+    font-weight: 700;
+    color: var(--primary-light);
+    font-size: 1.1rem;
+}
+
+.merch-bloque .form-range {
+    cursor: pointer;
+}
+
+/* SELECTOR DE COLORES */
+.merch-colores {
+    display: flex;
+    justify-content: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.merch-color-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: .72rem;
+    color: var(--text-secondary);
+    min-width: 45px;
+}
+
+.merch-color-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.merch-color-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--swatch);
+    border: 2px solid rgba(255,255,255,.3);
+    transition: transform .2s ease, outline .2s ease;
+}
+
+.merch-color-option:hover .merch-color-dot {
+    transform: scale(1.12);
+}
+
+.merch-color-option input:checked + .merch-color-dot {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 4px;
+    transform: scale(1.08);
+}
+
+.merch-color-option input:focus-visible + .merch-color-dot {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 5px;
+}
+
+/* ESTAMPADO Y DISEÑO */
+.merch-opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.merch-opciones label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .88rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.merch-opciones input {
+    accent-color: var(--primary-light);
+    cursor: pointer;
+}
+
+.merch-aviso-diseno {
+    color: var(--primary-light);
+    font-size: .82rem;
+    line-height: 1.6;
+}
+
+/* RESUMEN */
+.merch-resumen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    background: var(--bg-secondary);
+}
+
+.merch-resumen span {
+    color: var(--text-secondary);
+    font-size: .85rem;
+}
+
+.merch-resumen strong {
+    color: var(--primary-light);
+    font-size: 1.5rem;
+}
+
+.merch-error {
+    color: #ff8585;
+    font-size: .82rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 575px) {
+    .merch-modal {
+        border-radius: 25px;
+    }
+
+    .merch-bloque {
+        padding: 16px;
+    }
+
+    .merch-colores {
+        gap: 14px 10px;
+    }
+}
