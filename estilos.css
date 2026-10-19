@@ -870,7 +870,7 @@ path.two {
     margin: 0;
 }
 
-/* MODAL */
+/* MODAL SELECCIÓN DE PAÍS */
 
 #modalPais .modal-content {
     background: var(--card);
@@ -899,6 +899,123 @@ path.two {
 }
 
 /* CREADORES-Y-MARCAS.HTML */
+
+/* HERO */
+
+.page-creadores .hero-creadores-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.page-creadores .hero-creadores-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--primary-light);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .8px;
+    margin-bottom: 14px;
+}
+.page-creadores .hero-creadores-header h3 {
+    color: var(--text);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.page-creadores .hero-creadores-header p {
+    color: var(--text-secondary);
+    font-size: .85rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+.page-creadores .hero-creadores-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+}
+.page-creadores .hero-creadores-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 110px;
+    padding: 18px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: var(--text-secondary);
+    text-align: center;
+    text-decoration: none;
+    transition: .3s ease;
+}
+.page-creadores .hero-creadores-item:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, .1);
+}
+.page-creadores .hero-creadores-item:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.page-creadores .hero-creadores-item i {
+    color: var(--text-secondary);
+    font-size: 2rem;
+    text-shadow: 0 0 20px rgba(28, 181, 255, .25);
+}
+.page-creadores .hero-creadores-item span {
+    font-size: .78rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.page-creadores .hero-creadores-item:hover {
+    color: var(--text);
+}
+.page-creadores .hero-creadores-item:hover i {
+    color: var(--primary-light);
+    transform: scale(1.08);
+}
+.page-creadores .hero-creadores-merch {
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    padding: 14px 16px;
+    background: rgba(13, 110, 253, .08);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    color: var(--text-secondary);
+    font-size: .78rem;
+    text-decoration: none;
+    transition: .3s ease;
+}
+.page-creadores .hero-creadores-merch:not(.d-none) {
+    display: flex;
+}
+.page-creadores .hero-creadores-merch span {
+    flex: 1;
+}
+.page-creadores .hero-creadores-merch i {
+    color: var(--primary-light);
+    font-size: 1.1rem;
+}
+.page-creadores .hero-creadores-merch:hover {
+    color: var(--text);
+    border-color: var(--primary-light);
+}
+
+@media (max-width: 575px) {
+    .page-creadores .hero-creadores-item {
+        min-height: 95px;
+        padding: 15px 10px;
+    }
+
+    .page-creadores .hero-creadores-item span {
+        font-size: .73rem;
+    }
+
+    .page-creadores .hero-creadores-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* SOLUCIONES DIGITALES */
 
 .catalogo-section .service-card > :first-child {
     flex: 1;
@@ -1003,7 +1120,7 @@ path.two {
     }
 }
 
-/* PLANES */
+/* PLANES DIGITALES */
 
 .catalogo-section .plan-featured {
     border: 2px solid var(--primary-light);
@@ -1069,7 +1186,7 @@ path.two {
     text-decoration: none;
 }
 
-/* SITIOS WEB Y CHATBOT */
+/* DESARROLLO WEB */
 
 .catalogo-section .web-price {
     padding-top: 10px;
@@ -1120,7 +1237,7 @@ path.two {
     }
 }
 
-/* MODAL COMPRAR SERVICIO*/
+/* MODAL COMPRAR SERVICIO */
 
 #modalCompra .form-control[readonly] {
     color: var(--primary-light);
