@@ -237,15 +237,22 @@ document.querySelectorAll('[data-bs-toggle="popover"]').forEach((elemento) => {
     bootstrap.Popover.getOrCreateInstance(elemento);
 });
 
-/* FUNCIONAMIENTO DE MODAL PEDIDOS POR WHATSAPP */
+/* FUNCIONAMIENTO DE: MODAL DE COMPRA / COTIZACIÓN */
+
+/* FUNCIONAMIENTO DE: MODAL DE COMPRA / COTIZACIÓN */
 document.addEventListener("DOMContentLoaded", function () {
+
     const modal = document.getElementById("modalCompra");
     const formulario = document.getElementById("formCompra");
+
     if (!modal || !formulario) return;
+
+    /* CATÁLOGO DE PRODUCTOS */
     const productos = {
         audio: {
             nombre: "Audio publicidad",
-            tipo: "opciones"
+            tipo: "opciones",
+            etiqueta: "Duración"
         },
         flyers: {
             nombre: "Flyers publicitarios",
@@ -257,7 +264,8 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         videos: {
             nombre: "Videos para Reels, Shorts y TikTok",
-            tipo: "opciones"
+            tipo: "opciones",
+            etiqueta: "Duración"
         },
         starter: {
             nombre: "Plan Despega",
@@ -286,94 +294,241 @@ document.addEventListener("DOMContentLoaded", function () {
         campana: {
             nombre: "Paquete Campaña",
             tipo: "fijo"
+        },
+
+        /* SOLUCIONES TÉCNICAS */
+        "conf-wifi": {
+            nombre: "Configuración de Wi-Fi",
+            tipo: "fijo"
+        },
+        "inst-programas": {
+            nombre: "Instalación de programas",
+            tipo: "opciones",
+            etiqueta: "Programa"
+        },
+        "opt-sistema": {
+            nombre: "Optimización de sistema",
+            tipo: "fijo"
+        },
+        "mant-computo": {
+            nombre: "Mantenimiento de equipo de cómputo",
+            tipo: "opciones",
+            etiqueta: "Tipo de equipo"
+        },
+        reparaciones: {
+            nombre: "Reparaciones",
+            tipo: "cotizar"
         }
     };
+
+    /* ELEMENTOS DEL MODAL */
     const porId = id => document.getElementById(id);
+
     const grupoOpcion = porId("grupoOpcion");
     const grupoCantidad = porId("grupoCantidad");
+
     const opcion = porId("compraOpcion");
     const cantidad = porId("compraCantidad");
+
     const total = porId("compraTotal");
     const detalle = porId("compraDetalle");
+
+    /* CAMPOS ADICIONALES */
+    const grupoProgramaExtra = porId("grupoProgramaExtra");
+    const programaExtra = porId("compraProgramaExtra");
+
+    const grupoEquipoReparacion = porId("grupoEquipoReparacion");
+    const equipoReparacion = porId("compraEquipoReparacion");
+    const descripcionReparacion = porId("compraDescripcionReparacion");
+
     let productoActivo = null;
+    let monedaTemporal = null;
+
+    /* MONEDA SELECCIONADA */
     function monedaActual() {
-        const moneda = localStorage.getItem("moneda") || "MXN";
+        const moneda =
+            monedaTemporal ||
+            localStorage.getItem("moneda") ||
+            "MXN";
+
         return ["MXN", "EUR", "USD"].includes(moneda)
             ? moneda
             : "MXN";
     }
+
+    /* OBTENER PRECIO SEGÚN MONEDA */
     function precioVisible(elemento) {
         if (!elemento) return "";
-        if (productoActivo === "merch" || productoActivo === "campana") {
+
+        if (["merch", "campana"].includes(productoActivo)) {
             return elemento.dataset.mxn || "";
         }
-        return elemento.dataset[monedaActual().toLowerCase()] || "";
+
+        return elemento.dataset[
+            monedaActual().toLowerCase()
+        ] || "";
     }
+
+    /* OBTENER VARIANTES DE PRODUCTO */
     function variantes(clave) {
-        return Array.from(document.querySelectorAll(
-            `.precio[data-precio-producto="${clave}"][data-precio-opcion]`
-        ));
+        return Array.from(
+            document.querySelectorAll(
+                `.precio[data-precio-producto="${clave}"][data-precio-opcion]`
+            )
+        );
     }
+
+    /* OBTENER PRECIO FIJO */
     function precioFijo(clave, tipo) {
         return document.querySelector(
             `.precio[data-precio-producto="${clave}"][data-precio-tipo="${tipo}"]`
         );
     }
+
+    /* OBTENER NOMBRE DE VARIANTE */
     function textoVariante(elemento) {
-        return elemento?.closest("h5")
+        return elemento
+            ?.closest("h5")
             ?.querySelector("span")
             ?.textContent.trim() || "";
     }
+
+    /* PRODUCTO SELECCIONADO */
     function seleccionActual() {
         const producto = productos[productoActivo];
+
         if (!producto) return null;
+
         if (
-            producto.tipo === "cantidad" || producto.tipo === "opciones"
+            producto.tipo === "cantidad" ||
+            producto.tipo === "opciones"
         ) {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
                 : opcion;
-            return variantes(productoActivo)[Number(selector.value)] || null;
+
+            return variantes(productoActivo)[
+                Number(selector.value)
+            ] || null;
         }
+
         return producto.tipo === "cotizar"
             ? null
             : precioFijo(productoActivo, "actual");
     }
+
+    /* IDENTIFICAR SI REQUIERE COTIZACIÓN */
+    function requiereCotizacion() {
+        const producto = productos[productoActivo];
+
+        if (!producto) return false;
+
+        if (producto.tipo === "cotizar") {
+            return true;
+        }
+
+        const precio = precioVisible(
+            seleccionActual()
+        ).trim();
+
+        return !precio || /^a cotizar$/i.test(precio);
+    }
+
+    /* MOSTRAR CAMPOS ADICIONALES */
+    function actualizarCamposExtra() {
+
+        /* INSTALACIÓN DE OTROS PROGRAMAS */
+        const esOtroPrograma =
+            productoActivo === "inst-programas" &&
+            textoVariante(seleccionActual()) === "Otros Programas";
+
+        if (grupoProgramaExtra) {
+            grupoProgramaExtra.hidden = !esOtroPrograma;
+        }
+
+        if (programaExtra) {
+            programaExtra.required = esOtroPrograma;
+        }
+
+        /* REPARACIONES */
+        const esReparacion =
+            productoActivo === "reparaciones";
+
+        if (grupoEquipoReparacion) {
+            grupoEquipoReparacion.hidden = !esReparacion;
+        }
+
+        if (equipoReparacion) {
+            equipoReparacion.required = esReparacion;
+        }
+    }
+
+    /* ACTUALIZAR PRECIO DEL MODAL */
     function actualizarTotalCompra() {
         const producto = productos[productoActivo];
+
         if (!producto) return;
-        if (producto.tipo === "cotizar") {
-            total.textContent = "A cotizar";
-            detalle.textContent = "Recibirás una cotización personalizada por WhatsApp.";
-            return;
-        }
-        const seleccionado = seleccionActual();
-        const precio = precioVisible(seleccionado);
-        total.textContent = precio
-            ? precio + (producto.tipo === "mensual" ? " /mes" : "")
-            : "—";
-        if (producto.tipo === "cantidad") {
+
+        actualizarCamposExtra();
+
+        const elegido = seleccionActual();
+        const precio = precioVisible(elegido);
+        const cotizar = requiereCotizacion();
+
+        total.textContent = cotizar
+            ? "A cotizar"
+            : precio + (
+                producto.tipo === "mensual"
+                    ? " /mes"
+                    : ""
+            );
+
+        porId("modalCompraTitulo").textContent = cotizar
+            ? "Solicitar cotización"
+            : "Solicitar servicio";
+
+        porId("compraTextoBoton").textContent = cotizar
+            ? "Solicitar cotización"
+            : "Enviar solicitud";
+
+        porId("etiquetaTotal").textContent = cotizar
+            ? "Precio por confirmar"
+            : "Precio total";
+
+        if (cotizar) {
             detalle.textContent =
-                textoVariante(seleccionado) +
+                "Te confirmaremos el precio de acuerdo con tu solicitud.";
+
+        } else if (producto.tipo === "cantidad") {
+            detalle.textContent =
+                textoVariante(elegido) +
                 " · Precio del paquete elegido";
+
         } else if (producto.tipo === "opciones") {
-            detalle.textContent = textoVariante(seleccionado);
+            detalle.textContent =
+                textoVariante(elegido);
 
         } else if (producto.tipo === "mensual") {
-            detalle.textContent = "Suscripción mensual desde el precio indicado";
+            detalle.textContent =
+                "Suscripción mensual desde el precio indicado";
+
         } else {
             const anticipo = precioVisible(
                 precioFijo(productoActivo, "anticipo")
             );
+
             if (anticipo) {
                 detalle.textContent = anticipo;
+
             } else {
                 const anterior = precioVisible(
                     precioFijo(productoActivo, "antes")
                 );
+
                 const ahorro = precioVisible(
                     precioFijo(productoActivo, "ahorro")
                 );
+
                 detalle.textContent = [
                     anterior ? `Antes ${anterior}` : "",
                     ahorro
@@ -381,121 +536,268 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+    /* ACTUALIZAR OPCIONES */
     function actualizarOpciones() {
         const producto = productos[productoActivo];
+
         if (!producto) return;
+
         if (
-            producto.tipo === "cantidad" || producto.tipo === "opciones"
+            producto.tipo === "cantidad" ||
+            producto.tipo === "opciones"
         ) {
             const selector = producto.tipo === "cantidad"
                 ? cantidad
                 : opcion;
-            const seleccionAnterior = selector.value;
+
+            const indiceAnterior = selector.value;
+
             selector.replaceChildren();
-            variantes(productoActivo).forEach((elemento, indice) => {
-                selector.add(new Option(
-                    `${textoVariante(elemento)} — ${precioVisible(elemento)}`,
-                    String(indice)
-                ));
-            });
+
+            variantes(productoActivo).forEach(
+                (elemento, indice) => {
+
+                    selector.add(
+                        new Option(
+                            `${textoVariante(elemento)} — ${
+                                precioVisible(elemento) || "A cotizar"
+                            }`,
+                            String(indice)
+                        )
+                    );
+                }
+            );
+
             if (
-                seleccionAnterior !== "" &&
-                Number(seleccionAnterior) < selector.options.length
+                indiceAnterior !== "" &&
+                Number(indiceAnterior) < selector.options.length
             ) {
-                selector.value = seleccionAnterior;
+                selector.value = indiceAnterior;
             }
         }
+
         actualizarTotalCompra();
     }
+
+    /* ABRIR MODAL */
     modal.addEventListener("show.bs.modal", function (event) {
+
         const clave = event.relatedTarget?.dataset.producto;
-        if (!Object.prototype.hasOwnProperty.call(productos, clave)) {
+
+        if (
+            !Object.prototype.hasOwnProperty.call(
+                productos,
+                clave
+            )
+        ) {
             event.preventDefault();
             return;
         }
+
         productoActivo = clave;
+        monedaTemporal = null;
+
         const producto = productos[clave];
+
         formulario.reset();
+
         porId("compraProducto").value = producto.nombre;
-        porId("modalCompraTitulo").textContent = producto.tipo === "cotizar"
-                ? "Solicitar cotización"
-                : "Solicitar servicio";
-        porId("compraTextoBoton").textContent = producto.tipo === "cotizar"
-                ? "Enviar cotización"
-                : "Enviar solicitud";
-        grupoCantidad.hidden = producto.tipo !== "cantidad";
-        grupoOpcion.hidden = producto.tipo !== "opciones";
+
+        grupoCantidad.hidden =
+            producto.tipo !== "cantidad";
+
+        grupoOpcion.hidden =
+            producto.tipo !== "opciones";
+
+        grupoOpcion.querySelector("label").textContent =
+            producto.etiqueta || "Duración";
+
         cantidad.replaceChildren();
         opcion.replaceChildren();
+
         actualizarOpciones();
     });
-    cantidad.addEventListener("change", actualizarTotalCompra);
-    opcion.addEventListener("change", actualizarTotalCompra);
+
+    /* CAMBIAR SELECCIÓN */
+    cantidad.addEventListener(
+        "change",
+        actualizarTotalCompra
+    );
+
+    opcion.addEventListener(
+        "change",
+        actualizarTotalCompra
+    );
+
+    /* CAMBIAR MONEDA */
     document.querySelectorAll(".btn-pais").forEach(boton => {
-        boton.addEventListener("click", actualizarOpciones);
+
+        boton.addEventListener("click", function () {
+            monedaTemporal = boton.dataset.moneda || null;
+            actualizarOpciones();
+        });
+
     });
-    window.addEventListener("storage", event => {
-        if (event.key === "pais" || event.key === "moneda") {
-            actualizarPrecios();
+
+    /* CAMBIOS DE PAÍS EN OTRAS PESTAÑAS */
+    window.addEventListener("storage", function (event) {
+
+        if (
+            event.key === "pais" ||
+            event.key === "moneda"
+        ) {
+            monedaTemporal = null;
             actualizarOpciones();
         }
+
     });
+
+    /* ENVIAR PEDIDO POR WHATSAPP */
     formulario.addEventListener("submit", function (event) {
         event.preventDefault();
+
         if (!formulario.reportValidity()) return;
+
         const producto = productos[productoActivo];
+
         if (!producto) return;
+
         const nombre = porId("compraNombre").value.trim();
         const correo = porId("compraCorreo").value.trim();
+
         if (!nombre) return;
+
         const elegido = seleccionActual();
-        const cotizacion = producto.tipo === "cotizar";
+        const cotizacion = requiereCotizacion();
+
         const mensaje = [
-            `¡Hola *IC DigTec*! Me gustaría ${cotizacion ? "recibir una cotización" : "solicitar"} de _${producto.nombre}_.`,
+            `¡Hola *IC DigTec*! Me gustaría ${
+                cotizacion
+                    ? "recibir una cotización de"
+                    : "solicitar"
+            } _${producto.nombre}_.`,
             "",
             `*Nombre:* ${nombre}`,
             `*Correo:* ${correo || "No proporcionado"}`,
-            `*País:* ${localStorage.getItem("pais") || "México"}`,
+            `*País:* ${
+                localStorage.getItem("pais") || "México"
+            }`,
             `*Producto:* ${producto.nombre}`
         ];
+
+        /* CANTIDAD */
         if (producto.tipo === "cantidad") {
-            mensaje.push(`*Cantidad:* ${textoVariante(elegido)}`);
+            mensaje.push(
+                `*Cantidad:* ${textoVariante(elegido)}`
+            );
         }
+
+        /* OPCIONES */
         if (producto.tipo === "opciones") {
-            mensaje.push(`*Duración:* ${textoVariante(elegido)}`);
+            mensaje.push(
+                `*${producto.etiqueta || "Duración"}:* ${
+                    textoVariante(elegido)
+                }`
+            );
         }
+
+        /* OTROS PROGRAMAS */
+        if (
+            productoActivo === "inst-programas" &&
+            textoVariante(elegido) === "Otros Programas" &&
+            programaExtra
+        ) {
+            mensaje.push(
+                `*Programa solicitado:* ${
+                    programaExtra.value.trim()
+                }`
+            );
+        }
+
+        /* REPARACIONES */
+        if (productoActivo === "reparaciones") {
+
+            if (equipoReparacion) {
+                mensaje.push(
+                    `*Equipo:* ${equipoReparacion.value}`
+                );
+            }
+
+            if (descripcionReparacion?.value.trim()) {
+                mensaje.push(
+                    `*Problema:* ${
+                        descripcionReparacion.value.trim()
+                    }`
+                );
+            }
+        }
+
+        /* PRECIO */
         mensaje.push(
             `*Precio:* ${
                 cotizacion
                     ? "A cotizar"
                     : precioVisible(elegido) +
-                      (producto.tipo === "mensual" ? " /mes" : "")
+                      (
+                          producto.tipo === "mensual"
+                              ? " /mes"
+                              : ""
+                      )
             }`
         );
+
+        /* ANTICIPOS Y PRECIOS ANTERIORES */
         if (producto.tipo === "fijo") {
+
             const anticipo = precioVisible(
                 precioFijo(productoActivo, "anticipo")
             );
+
             const anterior = precioVisible(
                 precioFijo(productoActivo, "antes")
             );
+
             if (anticipo) {
                 mensaje.push(
-                    `*Anticipo:* ${anticipo.replace(/^Anticipo de\s*/i, "")}`
+                    `*Anticipo:* ${
+                        anticipo.replace(
+                            /^Anticipo de\s*/i,
+                            ""
+                        )
+                    }`
                 );
+
             } else if (anterior) {
-                mensaje.push(`*Precio anterior:* ${anterior}`);
+                mensaje.push(
+                    `*Precio anterior:* ${anterior}`
+                );
             }
         }
+
+        /* SUSCRIPCIÓN */
         if (producto.tipo === "mensual") {
-            mensaje.push("*Modalidad:* Suscripción mensual");
+            mensaje.push(
+                "*Modalidad:* Suscripción mensual"
+            );
         }
+
+        /* ABRIR WHATSAPP */
         const url =
             "https://wa.me/522221106016?text=" +
-            encodeURIComponent(mensaje.join("\n"));
-        window.open(url, "_blank", "noopener,noreferrer");
+            encodeURIComponent(
+                mensaje.join("\n")
+            );
+
+        window.open(
+            url,
+            "_blank",
+            "noopener,noreferrer"
+        );
     });
+
 });
+
 
 /* MODAL PERSONALIZAR PLAYERAS Y GORRAS */
 document.addEventListener("DOMContentLoaded", function () {
