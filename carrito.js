@@ -458,13 +458,13 @@
       partes.push('El total es $0. No es necesario realizar un pago; confirma tu solicitud con IC DigTec.');
     } else if (metodo === 'transferencia') {
       const cuenta = DATOS_PAGO.transferencia;
-      partes.push(`Realiza una transferencia por *${importePago}* a los siguientes datos:`);
+      partes.push(`Realiza una transferencia por *${importePago}* a los siguientes datos:`, '');
       partes.push(`*CLABE:* ${cuenta.clabe}`);
       partes.push(`*Beneficiario:* ${cuenta.beneficiario}`);
       partes.push(`*Institución:* ${cuenta.institucion}`);
       partes.push('', '_Verificamos el pago y procedemos a trabajar tu pedido._');
     } else if (metodo === 'mercadopago') {
-      partes.push(`Ingresa al siguiente enlace e ingresa el total de tu compra *${importePago}*.`);
+      partes.push(`Ingresa al siguiente enlace e introduce el total de tu compra *${importePago}*.`, '');
       partes.push(DATOS_PAGO.mercadopago.enlace);
       partes.push('', `_Verificamos el pago y procedemos a trabajar tu pedido._`);
     }
