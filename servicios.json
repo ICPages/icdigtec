@@ -1,0 +1,284 @@
+{
+  "configuracion": {
+    "marca": "IC DigTec",
+    "moneda": "MXN",
+    "whatsapp": "522221106016",
+    "cantidadMaxima": 99,
+    "avisoPedido": "La solicitud no constituye un pago ni una contratación confirmada. IC DigTec verificará precios, disponibilidad y condiciones por WhatsApp."
+  },
+  "productos": {
+    "audio": {
+      "nombre": "Audio publicidad",
+      "opciones": [
+        {
+          "id": "30s",
+          "nombre": "Hasta 30 segundos",
+          "precio": 199
+        },
+        {
+          "id": "60s",
+          "nombre": "Hasta 60 segundos",
+          "precio": 349
+        },
+        {
+          "id": "90s",
+          "nombre": "Hasta 90 segundos",
+          "precio": 499
+        }
+      ]
+    },
+    "flyers": {
+      "nombre": "Flyers publicitarios",
+      "opciones": [
+        {
+          "id": "1",
+          "nombre": "Paquete de 1 flyer",
+          "precio": 249
+        },
+        {
+          "id": "3",
+          "nombre": "Paquete de 3 flyers",
+          "precio": 699
+        },
+        {
+          "id": "5",
+          "nombre": "Paquete de 5 flyers",
+          "precio": 1099
+        }
+      ],
+      "descuentoPorCantidad": {
+        "opcionBase": "1",
+        "tramos": [
+          {
+            "cantidad": 1,
+            "opcion": "1"
+          },
+          {
+            "cantidad": 3,
+            "opcion": "3"
+          },
+          {
+            "cantidad": 5,
+            "opcion": "5"
+          }
+        ],
+        "preciosEspeciales": {
+          "4": 899
+        },
+        "nombreUnidad": "flyers",
+        "nombreUnidadSingular": "flyer"
+      }
+    },
+    "miniaturas": {
+      "nombre": "Miniaturas para YouTube",
+      "opciones": [
+        {
+          "id": "1",
+          "nombre": "Paquete de 1 miniatura",
+          "precio": 199
+        },
+        {
+          "id": "3",
+          "nombre": "Paquete de 3 miniaturas",
+          "precio": 549
+        },
+        {
+          "id": "5",
+          "nombre": "Paquete de 5 miniaturas",
+          "precio": 849
+        }
+      ],
+      "descuentoPorCantidad": {
+        "opcionBase": "1",
+        "tramos": [
+          {
+            "cantidad": 1,
+            "opcion": "1"
+          },
+          {
+            "cantidad": 3,
+            "opcion": "3"
+          },
+          {
+            "cantidad": 5,
+            "opcion": "5"
+          }
+        ],
+        "preciosEspeciales": {
+          "4": 699
+        },
+        "nombreUnidad": "miniaturas",
+        "nombreUnidadSingular": "miniatura"
+      }
+    },
+    "videos": {
+      "nombre": "Videos para Reels, Shorts y TikTok",
+      "opciones": [
+        {
+          "id": "45s",
+          "nombre": "Hasta 45 segundos",
+          "precio": 399
+        },
+        {
+          "id": "90s",
+          "nombre": "Hasta 90 segundos",
+          "precio": 649
+        }
+      ]
+    },
+    "starter": {
+      "nombre": "Plan Despega",
+      "opciones": [
+        {
+          "id": "mensual",
+          "nombre": "Plan mensual",
+          "precio": 1199,
+          "precioAnterior": 1348
+        }
+      ]
+    },
+    "business": {
+      "nombre": "Plan Impulsa",
+      "opciones": [
+        {
+          "id": "mensual",
+          "nombre": "Plan mensual",
+          "precio": 1999,
+          "precioAnterior": 2397
+        }
+      ]
+    },
+    "premium": {
+      "nombre": "Plan Promociona",
+      "opciones": [
+        {
+          "id": "mensual",
+          "nombre": "Plan mensual",
+          "precio": 3799,
+          "precioAnterior": 4354.40
+        }
+      ]
+    },
+    "landing": {
+      "nombre": "Sitios web",
+      "nota": "La mensualidad es desde el precio mostrado. El desarrollo inicial es adicional, desde $1,449 MXN y sujeto a cotización; no está incluido en el total automático.",
+      "desarrolloInicialDesde": 1449,
+      "opciones": [
+        {
+          "id": "desde-mensual",
+          "nombre": "Mensualidad desde (precio estimado)",
+          "precio": 299,
+          "estimado": true
+        }
+      ]
+    },
+    "chatbot": {
+      "nombre": "Chatbot para tu sitio",
+      "nota": "Precio sujeto a cotización según las funciones solicitadas.",
+      "opciones": [
+        {
+          "id": "personalizado",
+          "nombre": "Proyecto personalizado",
+          "precio": null
+        }
+      ]
+    },
+    "conf-wifi": {
+      "nombre": "Configuración de Wi-Fi",
+      "opciones": [
+        {
+          "id": "remoto",
+          "nombre": "Asistencia remota",
+          "precio": 349
+        }
+      ]
+    },
+    "inst-programas": {
+      "nombre": "Instalación de programas",
+      "opciones": [
+        {
+          "id": "office-1",
+          "nombre": "Office remoto · 1 equipo",
+          "precio": 399
+        },
+        {
+          "id": "office-2",
+          "nombre": "Office remoto · 2 equipos",
+          "precio": 649
+        },
+        {
+          "id": "otros",
+          "nombre": "Otros programas (a cotizar)",
+          "precio": null
+        }
+      ],
+      "descuentoPorCantidad": {
+        "opcionBase": "office-1",
+        "tramos": [
+          {
+            "cantidad": 1,
+            "opcion": "office-1"
+          },
+          {
+            "cantidad": 2,
+            "opcion": "office-2"
+          }
+        ],
+        "cotizarDesde": 3,
+        "nombreUnidad": "equipos",
+        "nombreUnidadSingular": "equipo"
+      }
+    },
+    "opt-sistema": {
+      "nombre": "Optimización de sistema",
+      "opciones": [
+        {
+          "id": "remoto",
+          "nombre": "Optimización remota",
+          "precio": 499
+        }
+      ]
+    },
+    "mant-computo": {
+      "nombre": "Mantenimiento de equipo de cómputo",
+      "opciones": [
+        {
+          "id": "laptop",
+          "nombre": "Laptop",
+          "precio": 349
+        },
+        {
+          "id": "pc",
+          "nombre": "PC de escritorio",
+          "precio": 499
+        }
+      ]
+    },
+    "reparaciones": {
+      "nombre": "Reparaciones",
+      "nota": "El costo se determina después de evaluar el equipo y el servicio solicitado.",
+      "opciones": [
+        {
+          "id": "diagnostico",
+          "nombre": "Reparación / diagnóstico a cotizar",
+          "precio": null
+        }
+      ]
+    }
+  },
+  "cupones": {
+    "BIENVENIDA10": {
+      "activo": false,
+      "tipo": "porcentaje",
+      "valor": 100,
+      "compraMinima": 500,
+      "maximoDescuento": 200
+    },
+    "AHORRA50": {
+      "activo": false,
+      "tipo": "fijo",
+      "valor": 50,
+      "compraMinima": 800
+    }
+  }
+}
