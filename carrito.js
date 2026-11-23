@@ -6,6 +6,18 @@
 
   const RUTA_CATALOGO = './servicios.json';
   const CLAVE_ALMACENAMIENTO = 'icdigtec_carrito_v1';
+  // Datos que se añaden al mensaje según el método elegido por el cliente.
+  // Cambia aquí la cuenta o el enlace de cobro si IC DigTec los actualiza.
+  const DATOS_PAGO = Object.freeze({
+    transferencia: {
+      clabe: '722969010693570149',
+      beneficiario: 'Marcos Imer Coria Sánchez',
+      institucion: 'Mercado Pago W'
+    },
+    mercadopago: {
+      enlace: 'https://link.mercadopago.com.mx/icdigtec'
+    }
+  });
   const estado = { catalogo: null, articulos: [], cupon: '' };
   const $ = (selector, raiz = document) => raiz.querySelector(selector);
   const $$ = (selector, raiz = document) => Array.from(raiz.querySelectorAll(selector));
@@ -393,42 +405,68 @@
 
   function construirMensaje(nombre, correo, metodo) {
     const resumen = calcularResumen();
+    const importePago = dinero(resumen.total).replace(/\s*MXN$/, '');
+    const totalPorDefinir = resumen.cotizaciones > 0 || resumen.estimados > 0;
+    const descuentoTotal = redondear(resumen.promociones + resumen.descuentoCupon);
     const partes = [
-      '*Solicitud de servicios | IC DigTec*',
+      '*IC DigTec | Soluc. Digitales y Técnicas*',
+      '_Solicitud de Servicios_',
       '',
       `*Nombre:* ${nombre}`,
       ...(correo ? [`*Correo:* ${correo}`] : []),
       '',
-      '*Detalle del carrito:*'
+      '*Detalles del carrito:*'
     ];
-    resumen.detalles.forEach(({ producto, opcion, item, precio, lista, importe, cotizar }, indice) => {
-      partes.push(`\n${indice + 1}. *${producto.nombre}*`);
+
+    resumen.detalles.forEach(({ producto, opcion, item, precio, lista, importe, cotizar }) => {
+      partes.push('', `- *${producto.nombre}*`);
       const regla = reglaPorCantidad(producto);
-      if (!regla || opcion.id !== regla.opcionBase) partes.push(`   Opción: ${opcion.nombre}`);
-      partes.push(`   Cantidad: ${regla && opcion.id === regla.opcionBase ? textoCantidad(producto, item.cantidad) : item.cantidad}`);
-      if (cotizar) partes.push('   Precio: A cotizar');
-      else {
-        partes.push(`   Precio unitario: ${dinero(lista)}`);
-        if (lista > precio) partes.push(`   Promedio unitario con descuento: ${dinero(redondear(precio))}`);
-        partes.push(`   Importe: ${dinero(importe)}`);
+      const usaUnidades = regla && opcion.id === regla.opcionBase;
+      if (!usaUnidades) partes.push(`Opción: ${opcion.nombre}`);
+      partes.push(`Cantidad: ${usaUnidades ? textoCantidad(producto, item.cantidad) : item.cantidad}`);
+      if (cotizar) {
+        partes.push('Precio: A cotizar');
+      } else {
+        partes.push(`Precio unitario: ${dinero(lista)}`);
+        if (lista > precio) {
+          partes.push(`Precio unitario con descuento: ${dinero(redondear(precio))}`);
+        }
+        partes.push(`Importe: ${dinero(importe)}`);
       }
-      if (opcion.estimado) partes.push('   Tarifa desde: sujeta a cotización.');
-      if (producto.nota) partes.push(`   Nota: ${producto.nota}`);
+      if (opcion.estimado) partes.push('Tarifa desde: sujeta a confirmación.');
+      if (producto.nota) partes.push(`Nota: ${producto.nota}`);
     });
+
     partes.push('', '*Resumen:*');
-    partes.push(`Subtotal antes de descuentos: ${dinero(resumen.subtotal)}`);
-    partes.push(`Descuento de servicios: -${dinero(resumen.promociones)}`);
-    if (estado.cupon) {
-      partes.push(`Cupón indicado: ${estado.cupon}`);
-      partes.push(`Descuento del cupón: -${dinero(resumen.descuentoCupon)}`);
-      if (resumen.mensajeCupon) partes.push(`Nota del cupón: ${resumen.mensajeCupon}`);
+    partes.push(`Subtotal: ${dinero(resumen.subtotal)}`);
+    partes.push(`Descuento: -${dinero(descuentoTotal)}`);
+    if (estado.cupon && resumen.descuentoCupon > 0 && !resumen.mensajeCupon) {
+      partes.push(`Cupón aplicado: ${estado.cupon}`);
+    } else if (estado.cupon && resumen.mensajeCupon) {
+      partes.push(`Cupón ${estado.cupon}: ${resumen.mensajeCupon}`);
     }
-    partes.push(`${resumen.cotizaciones || resumen.estimados ? 'Total parcial estimado' : 'TOTAL'}: ${resumen.cotizaciones === resumen.detalles.length ? 'Por cotizar' : dinero(resumen.total)}`);
-    partes.push(`*Método de pago preferido:* ${metodo === 'transferencia' ? 'Transferencia bancaria' : 'Mercado Pago'}`);
-    if (resumen.cotizaciones || resumen.estimados) {
-      partes.push('Hay conceptos a cotizar o con precios desde. El total no incluye montos por definir.');
+    const totalTexto = resumen.cotizaciones === resumen.detalles.length
+      ? 'A cotizar'
+      : dinero(resumen.total);
+    partes.push(`*${totalPorDefinir ? 'TOTAL ESTIMADO' : 'TOTAL'}: ${totalTexto}*`);
+    partes.push('', `*Método de Pago:* ${metodo === 'transferencia' ? 'Transferencia bancaria' : 'Mercado Pago'}`);
+
+    // No pedir un pago por un importe parcial o sujeto a revisión.
+    if (totalPorDefinir) {
+      partes.push('El monto final está pendiente de cotización o confirmación. No realices el pago hasta que IC DigTec te confirme el total.');
+    } else if (resumen.total === 0) {
+      partes.push('El total es $0. No es necesario realizar un pago; confirma tu solicitud con IC DigTec.');
+    } else if (metodo === 'transferencia') {
+      const cuenta = DATOS_PAGO.transferencia;
+      partes.push(`Realiza una transferencia por *${importePago}* a los siguientes datos:`);
+      partes.push(`*CLABE:* ${cuenta.clabe}`);
+      partes.push(`*Beneficiario:* ${cuenta.beneficiario}`);
+      partes.push(`*Institución:* ${cuenta.institucion}`);
+      partes.push('Verificamos el pago y procedemos a trabajar tu pedido.');
+    } else if (metodo === 'mercadopago') {
+      partes.push(`Ingresa al siguiente enlace e ingresa el total de tu compra *${importePago}*. Verificamos el pago y procedemos a trabajar tu pedido.`);
+      partes.push(DATOS_PAGO.mercadopago.enlace);
     }
-    partes.push('', estado.catalogo.configuracion.avisoPedido);
     return partes.join('\n');
   }
 
