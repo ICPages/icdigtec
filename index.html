@@ -130,9 +130,10 @@
             </div>
 
             <div class="navbar-actions d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-pais-navbar" id="cambiarPais" aria-label="Cambiar país">
+                <button type="button" class="btn btn-pais-navbar" id="cambiarPais" aria-label="Cambiar país" hidden>
                     <i class="fi fi-mx" id="banderaActual"></i> <span id="paisActual">México</span>
                 </button>
+                <button type="button" class="btn btn-outline-light btn-custom carrito-boton-navbar" data-bs-toggle="offcanvas" data-bs-target="#carritoPanel" aria-controls="carritoPanel"><i class="bi bi-cart"></i> Carrito <span class="carrito-contador" data-carrito-conteo>0</span></button>
                 <a href="https://wa.me/522221106016?text=¡Hola%20*IC%20DigTec*!%20Me%20gustaría%20recibir%20más%20información%20sobre:%20" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-custom"><i class="bi bi-whatsapp"></i> Contactar</a>
             </div>
 
@@ -259,7 +260,7 @@
 </section>
 
 <!-- PROMOCIONES -->
-<section id="promociones" class="promociones-section solo-mexico d-none">
+<section id="promociones" class="promociones-section solo-mexico">
     <div id="carouselPromociones" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover">
 
         <div class="carousel-indicators">
@@ -269,9 +270,9 @@
 
         <div class="carousel-inner">
 
-            <!-- PROMOCIÓN 1 -->
+            <!-- PROMOCIÓN 1: actualizar también el arte Promo1.webp si todavía muestra una tarifa anterior. -->
             <div class="carousel-item active">
-                <a href="https://wa.me/522221106016?text=%C2%A1Hola%20%2AIC%20DigTec%2A%21%20Quiero%20agendar%20para%20la%20promoci%C3%B3n%20de%20%5FInstalaci%C3%B3n%20de%20Office%5F%20por%20%2A%24249%20MXN%2A." target="_blank" rel="noopener noreferrer" class="promocion-link">
+                <a href="#soluciones-tecnicas" class="promocion-link">
                     <img src="Contenido/Branding/Promo1.webp" class="promocion-img" alt="Instalación de Office" width="1920" height="640">
                 </a>
             </div>
@@ -315,11 +316,12 @@
                     <div class="catalogo-card-bottom">
                         <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
                         <div class="service-price">
-                            <h5><span>Hasta 30 segundos</span><strong data-precio-producto="audio" data-precio-opcion="0" class="precio" data-mxn="$250 MXN" data-eur="€20 EUR" data-usd="$25 USD">$250 MXN</strong></h5>
-                            <h5><span>Hasta 60 segundos</span><strong data-precio-producto="audio" data-precio-opcion="1" class="precio" data-mxn="$400 MXN" data-eur="€30 EUR" data-usd="$35 USD">$400 MXN</strong></h5>
+                            <h5><span>Hasta 30 segundos</span><strong data-catalogo-producto="audio" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>Hasta 60 segundos</span><strong data-catalogo-producto="audio" data-catalogo-opcion="1">—</strong></h5>
+                            <h5><span>Hasta 90 segundos</span><strong data-catalogo-producto="audio" data-catalogo-opcion="2">—</strong></h5>
                         </div>
                         <div class="service-buttons row">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="audio"><i class="bi bi-bag-check"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="audio"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                             <a class="btn btn-muestra" id="btnMuestraAudio" title="Escuchar muestra" aria-label="Escuchar muestra"><i class="bi bi-play-fill"></i></a>
                             <audio id="audioVentaPescado" src="Contenido/Portafolio/VentaPescado.mp3" preload="none"></audio>
                         </div>
@@ -337,12 +339,12 @@
                     <div class="catalogo-card-bottom">
                         <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
                         <div class="service-price">
-                            <h5><span>1 flyer</span><strong data-precio-producto="flyers" data-precio-opcion="0" class="precio" data-mxn="$250 MXN" data-eur="€20 EUR" data-usd="$25 USD">$250 MXN</strong></h5>
-                            <h5><span>3 flyers</span><strong data-precio-producto="flyers" data-precio-opcion="1" class="precio" data-mxn="$700 MXN" data-eur="€50 EUR" data-usd="$60 USD">$700 MXN</strong></h5>
-                            <h5><span>5 flyers</span><strong data-precio-producto="flyers" data-precio-opcion="2" class="precio" data-mxn="$1,100 MXN" data-eur="€80 EUR" data-usd="$95 USD">$1,100 MXN</strong></h5>
+                            <h5><span>1 flyer</span><strong data-catalogo-producto="flyers" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>3 flyers</span><strong data-catalogo-producto="flyers" data-catalogo-opcion="1">—</strong></h5>
+                            <h5><span>5 flyers</span><strong data-catalogo-producto="flyers" data-catalogo-opcion="2">—</strong></h5>
                         </div>
-                        <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="flyers"><i class="bi bi-bag-check"></i> Comprar</button>
+                        <div class="service-buttons row">
+                            <button type="button" class="btn btn-primary" data-cart-producto="flyers"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                             <a class="btn btn-muestra" data-bs-toggle="modal" data-bs-target="#modalMuestras" title="Ver muestras" aria-label="Ver muestras de diseño"><i class="bi bi-images"></i></a>
                         </div>
                     </div>
@@ -359,12 +361,12 @@
                     <div class="catalogo-card-bottom">
                         <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
                         <div class="service-price">
-                            <h5><span>1 miniatura</span><strong data-precio-producto="miniaturas" data-precio-opcion="0" class="precio" data-mxn="$200 MXN" data-eur="€15 EUR" data-usd="$20 USD">$200 MXN</strong></h5>
-                            <h5><span>3 miniaturas</span><strong data-precio-producto="miniaturas" data-precio-opcion="1" class="precio" data-mxn="$540 MXN" data-eur="€35 EUR" data-usd="$45 USD">$540 MXN</strong></h5>
-                            <h5><span>5 miniaturas</span><strong data-precio-producto="miniaturas" data-precio-opcion="2" class="precio" data-mxn="$800 MXN" data-eur="€50 EUR" data-usd="$65 USD">$800 MXN</strong></h5>
+                            <h5><span>1 miniatura</span><strong data-catalogo-producto="miniaturas" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>3 miniaturas</span><strong data-catalogo-producto="miniaturas" data-catalogo-opcion="1">—</strong></h5>
+                            <h5><span>5 miniaturas</span><strong data-catalogo-producto="miniaturas" data-catalogo-opcion="2">—</strong></h5>
                         </div>
                         <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="miniaturas"><i class="bi bi-bag-check"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="miniaturas"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                         </div>
                     </div>
                 </article>
@@ -380,11 +382,11 @@
                     <div class="catalogo-card-bottom">
                         <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
                         <div class="service-price">
-                            <h5><span>Hasta 45 segundos</span><strong data-precio-producto="videos" data-precio-opcion="0" class="precio" data-mxn="$400 MXN" data-eur="€30 EUR" data-usd="$35 USD">$400 MXN</strong></h5>
-                            <h5><span>Hasta 90 segundos</span><strong data-precio-producto="videos" data-precio-opcion="1" class="precio" data-mxn="$650 MXN" data-eur="€50 EUR" data-usd="$55 USD">$650 MXN</strong></h5>
+                            <h5><span>Hasta 45 segundos</span><strong data-catalogo-producto="videos" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>Hasta 90 segundos</span><strong data-catalogo-producto="videos" data-catalogo-opcion="1">—</strong></h5>
                         </div>
                         <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="videos"><i class="bi bi-bag-check"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="videos"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                         </div>
                     </div>
                 </article>
@@ -396,11 +398,11 @@
 </section>
 
 <!-- PLANES DIGITALES - DESPEGA, IMPULSA Y PROMOCIONA -->
-<section id="planes-digitales" class="section-padding catalogo-section">
+<section id="planes-de-contenido" class="section-padding catalogo-section">
     <div class="container">
 
         <div class="section-title text-center">
-            <h2><i class="bi bi-grid-3x3-gap"></i> Planes de contenido</h2>
+            <h2><i class="bi bi-grid-3x3-gap"></i> Planes de Contenido</h2>
             <p>Contrata tu plan y solicita los flyers y videos incluidos cuando los necesites, durante todo el mes. ¡No tienes que pedirlos todos de una vez!</p>
         </div>
 
@@ -417,10 +419,10 @@
                         </ul>
                     </div>
                     <div class="plan-footer">
-                        <div class="plan-old-price">Antes <s data-precio-producto="starter" data-precio-tipo="antes" class="precio" data-mxn="$1,350 MXN" data-eur="€99 EUR" data-usd="$129 USD">$1,350 MXN</s></div>
-                        <div class="plan-new-price precio" data-precio-producto="starter" data-precio-tipo="actual" data-mxn="$1,049 MXN" data-eur="€79 EUR" data-usd="$105 USD">$1,049 MXN</div>
-                        <div class="plan-savings precio" data-precio-producto="starter" data-precio-tipo="ahorro" data-mxn="Ahorras $301 MXN" data-eur="Ahorras €20 EUR" data-usd="Ahorras $24 USD">Ahorras $301 MXN</div>
-                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="starter"><i class="bi bi-bag-check"></i> Comprar</button></div>
+                        <div class="plan-old-price"><s data-catalogo-producto="starter" data-catalogo-tipo="antes">—</s></div>
+                        <div class="plan-new-price" data-catalogo-producto="starter" data-catalogo-tipo="actual">—</div>
+                        <div class="plan-savings" data-catalogo-producto="starter" data-catalogo-tipo="ahorro">—</div>
+                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-cart-producto="starter"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></div>
                     </div>
                 </article>
             </div>
@@ -437,10 +439,10 @@
                         </ul>
                     </div>
                     <div class="plan-footer">
-                        <div class="plan-old-price">Antes <s data-precio-producto="business" data-precio-tipo="antes" class="precio" data-mxn="$2,400 MXN" data-eur="€179 EUR" data-usd="$239 USD">$2,400 MXN</s></div>
-                        <div class="plan-new-price precio" data-precio-producto="business" data-precio-tipo="actual" data-mxn="$1,999 MXN" data-eur="€149 EUR" data-usd="$199 USD">$1,999 MXN</div>
-                        <div class="plan-savings precio" data-precio-producto="business" data-precio-tipo="ahorro" data-mxn="Ahorras $401 MXN" data-eur="Ahorras €30 EUR" data-usd="Ahorras $40 USD">Ahorras $401 MXN</div>
-                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="business"><i class="bi bi-bag-check"></i> Comprar</button></div>
+                        <div class="plan-old-price"><s data-catalogo-producto="business" data-catalogo-tipo="antes">—</s></div>
+                        <div class="plan-new-price" data-catalogo-producto="business" data-catalogo-tipo="actual">—</div>
+                        <div class="plan-savings" data-catalogo-producto="business" data-catalogo-tipo="ahorro">—</div>
+                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-cart-producto="business"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></div>
                     </div>
                 </article>
             </div>
@@ -456,10 +458,10 @@
                         </ul>
                     </div>
                     <div class="plan-footer">
-                        <div class="plan-old-price">Antes <s data-precio-producto="premium" data-precio-tipo="antes" class="precio" data-mxn="$4,300 MXN" data-eur="€329 EUR" data-usd="$429 USD">$4,300 MXN</s></div>
-                        <div class="plan-new-price precio" data-precio-producto="premium" data-precio-tipo="actual" data-mxn="$3,899 MXN" data-eur="€299 EUR" data-usd="$389 USD">$3,899 MXN</div>
-                        <div class="plan-savings precio" data-precio-producto="premium" data-precio-tipo="ahorro" data-mxn="Ahorras $401 MXN" data-eur="Ahorras €30 EUR" data-usd="Ahorras $40 USD">Ahorras $401 MXN</div>
-                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="premium"><i class="bi bi-bag-check"></i> Comprar</button></div>
+                        <div class="plan-old-price"><s data-catalogo-producto="premium" data-catalogo-tipo="antes">—</s></div>
+                        <div class="plan-new-price" data-catalogo-producto="premium" data-catalogo-tipo="actual">—</div>
+                        <div class="plan-savings" data-catalogo-producto="premium" data-catalogo-tipo="ahorro">—</div>
+                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-cart-producto="premium"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></div>
                     </div>
                 </article>
             </div>
@@ -482,7 +484,6 @@
 
             <div class="col-md-6 col-lg-5">
                 <article class="service-card web-card">
-
                     <div>
                         <i class="bi bi-window-stack service-icon" aria-hidden="true"></i>
                         <h4>Sitios web</h4>
@@ -494,23 +495,20 @@
                             <li><i class="bi bi-check-circle-fill"></i> Soporte técnico y actualizaciones</li>
                         </ul>
                     </div>
-
                     <div class="catalogo-card-bottom">
                         <div class="web-price">
-                            <span>Desde</span> <strong data-precio-producto="landing" data-precio-tipo="actual" class="precio" data-mxn="$299 MXN" data-eur="€17 EUR" data-usd="$19 USD">$299 MXN</strong> <small>/mes</small>
-                            <div class="plan-savings precio" data-mxn="Desarrollo inicial desde $1,449 MXN." data-eur="Desarrollo inicial desde €85 EUR." data-usd="Desarrollo inicial desde $95 USD.">Desarrollo inicial desde $1,449 MXN.</div>
+                            <span>Desde</span> <strong data-catalogo-producto="landing" data-catalogo-tipo="actual">—</strong> <small>/mes</small>
+                            <div class="plan-savings" data-catalogo-inicial="landing">—</div>
                         </div>
                         <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="landing"><i class="bi bi-bag-check"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="landing"><i class="bi bi-chat-dots"></i> Solicitar cotización</button>
                         </div>
                     </div>
-
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-5">
                 <article class="service-card web-card">
-
                     <div>
                         <i class="bi bi-robot service-icon" aria-hidden="true"></i>
                         <h4>Chatbot para tu sitio</h4>
@@ -521,14 +519,12 @@
                             <li><i class="bi bi-check-circle-fill"></i> Respuestas y funciones personalizadas</li>
                         </ul>
                     </div>
-
                     <div class="catalogo-card-bottom">
                         <div class="web-price"><strong>A cotizar</strong></div>
                         <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="chatbot"><i class="bi bi-chat-dots"></i> Cotizar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="chatbot"><i class="bi bi-chat-dots"></i> Solicitar cotización</button>
                         </div>
                     </div>
-                    
                 </article>
             </div>
 
@@ -539,34 +535,32 @@
     </div>
 </section>
 
-<!-- SOPORTE TÉCNICO -->
+<!-- SOPORTE TÉCNICO REMOTO -->
 <section id="soluciones-tecnicas" class="section-padding catalogo-section">
     <div class="container">
 
         <div class="section-title text-center">
             <span class="span-resaltar"><i class="bi bi-stars me-1"></i> SOLUCIONES TÉCNICAS</span>
-            <h2><i class="bi bi-tools"></i> Soporte Técnico</h2>
+            <h2><i class="bi bi-mouse"></i> Soporte Técnico Remoto</h2>
             <p>Servicios para cuidar, reparar y mejorar el funcionamiento de tus equipos. Atención remota o presencial según el servicio y ubicación.</p>
         </div>
 
         <div class="row g-4 mt-4">
 
-            <!-- CONFIGURACIÓN DE WI-FI -->
             <div class="col-md-6 col-lg-4">
                 <article class="service-card plan-card">
                     <div class="plan-body">
-                        <i class="bi bi-wifi service-icon" aria-hidden="true"></i>
+                        <i class="bi bi-router service-icon" aria-hidden="true"></i>
                         <h4>Configuración de Wi-Fi</h4>
                         <p>Asistencia remota para revisar y ajustar la configuración de tu red Wi-Fi y resolver problemas de conectividad.</p>
                     </div>
                     <div class="plan-footer">
-                        <div class="plan-new-price precio" data-precio-producto="conf-wifi" data-precio-tipo="actual" data-mxn="$400 MXN" data-eur="€79 EUR" data-usd="$105 USD">$400 MXN</div>
-                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="conf-wifi"><i class="bi bi-bag-check"></i> Comprar</button></div>
+                        <div class="plan-new-price" data-catalogo-producto="conf-wifi" data-catalogo-tipo="actual">—</div>
+                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-cart-producto="conf-wifi"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></div>
                     </div>
                 </article>
             </div>
 
-            <!-- INSTALACIÓN DE PROGRAMAS -->
             <div class="col-md-6 col-lg-4">
                 <article class="service-card servicio-catalogo-card">
                     <div class="catalogo-card-top">
@@ -577,17 +571,17 @@
                     <div class="catalogo-card-bottom">
                         <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
                         <div class="service-price">
-                            <h5><span>Office</span><strong data-precio-producto="inst-programas" data-precio-opcion="0" class="precio" data-mxn="$399 MXN" data-eur="€20 EUR" data-usd="$25 USD">$399 MXN</strong></h5>
-                            <h5><span>Otros Programas</span><strong data-precio-producto="inst-programas" data-precio-opcion="1" class="precio" data-mxn="A cotizar" data-eur="A cotizar" data-usd="A cotizar">A cotizar</strong></h5>
+                            <h5><span>Microsoft Office</span><strong data-catalogo-producto="inst-programas" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>Microsoft Office · 2 equipos</span><strong data-catalogo-producto="inst-programas" data-catalogo-opcion="1">—</strong></h5>
+                            <h5><span>Otros Programas</span><strong data-catalogo-producto="inst-programas" data-catalogo-opcion="2">—</strong></h5>
                         </div>
                         <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="inst-programas"><i class="bi bi-bag-check"></i> Comprar</button>
+                            <button type="button" class="btn btn-primary" data-cart-producto="inst-programas"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- OPTIMIZACIÓN DE SISTEMA -->
             <div class="col-md-6 col-lg-4">
                 <article class="service-card plan-card">
                     <div class="plan-body">
@@ -596,57 +590,13 @@
                         <p>Revisión de aplicaciones de inicio, archivos temporales y ajustes básicos del sistema mediante asistencia remota.</p>
                     </div>
                     <div class="plan-footer">
-                        <div class="plan-new-price precio" data-precio-producto="opt-sistema" data-precio-tipo="actual" data-mxn="$500 MXN" data-eur="€79 EUR" data-usd="$105 USD">$500 MXN</div>
-                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="opt-sistema"><i class="bi bi-bag-check"></i> Comprar</button></div>
+                        <div class="plan-new-price" data-catalogo-producto="opt-sistema" data-catalogo-tipo="actual">—</div>
+                        <div class="service-buttons"><button type="button" class="btn btn-primary" data-cart-producto="opt-sistema"><i class="bi bi-cart-plus"></i> Agregar al carrito</button></div>
                     </div>
                 </article>
             </div>
 
         </div>
-
-        <div class="row g-4 mt-4 solo-mexico d-none justify-content-center">
-
-            <!-- MANTENIMIENTO DE EQUIPO DE CÓMPUTO -->
-            <div class="col-md-6 col-lg-5">
-                <article class="service-card servicio-catalogo-card">
-                    <div class="catalogo-card-top">
-                        <i class="bi bi-pc-display-horizontal service-icon" aria-hidden="true"></i>
-                        <h4>Mantenimiento de Equipo de Cómputo</h4>
-                        <p>Limpieza y mantenimiento preventivo de laptops y computadoras de escritorio; incluyendo cambio de pasta térmica.</p>
-                    </div>
-                    <div class="catalogo-card-bottom">
-                        <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
-                        <div class="service-price">
-                            <h5><span>Laptop</span><strong data-precio-producto="mant-computo" data-precio-opcion="0" class="precio" data-mxn="$349 MXN">$349 MXN</strong></h5>
-                            <h5><span>PC</span><strong data-precio-producto="mant-computo" data-precio-opcion="1" class="precio" data-mxn="$499 MXN">$499 MXN</strong></h5>
-                        </div>
-                        <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="mant-computo"><i class="bi bi-bag-check"></i> Comprar</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- REPARACIONES -->
-            <div class="col-md-6 col-lg-5">
-                <article class="service-card plan-card">
-                    <div class="plan-body">
-                        <i class="bi bi-wrench-adjustable service-icon" aria-hidden="true"></i>
-                        <h4>Reparaciones</h4>
-                        <p>Diagnóstico y reparación de equipo de cómputo y teléfonos celulares, cambio de los componentes necesarios.</p>
-                    </div>
-                    <div class="plan-footer">
-                        <div class="plan-new-price precio" data-precio-producto="reparaciones" data-precio-tipo="actual" data-mxn="A cotizar">A cotizar</div>
-                        <div class="service-buttons">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCompra" data-producto="reparaciones"><i class="bi bi-chat-dots"></i> Cotizar</button>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-        </div>
-
-        <p class="precio-moneda-nota text-center mt-4">Precios en <strong id="monedaCatalogo" class="precio" data-mxn="MXN" data-eur="EUR" data-usd="USD">MXN</strong> según tu país seleccionado. La solicitud se confirma por WhatsApp.</p>
 
     </div>
 </section>
@@ -734,6 +684,58 @@
                     </tbody>
 
                 </table>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- MANTENIMIENTO Y REPARACIONES -->
+<section id="mantenimiento-y-reparaciones" class="section-padding catalogo-section">
+    <div class="container">
+
+        <div class="section-title text-center">
+            <h2><i class="bi bi-tools"></i> Mantenimiento y Reparaciones</h2>
+            <p>Servicios para cuidar, reparar y mejorar el funcionamiento de tus equipos. Atención remota o presencial según el servicio y ubicación.</p>
+        </div>
+
+        <div class="row g-4 mt-4 justify-content-center">
+
+            <div class="col-md-6 col-lg-5">
+                <article class="service-card servicio-catalogo-card">
+                    <div class="catalogo-card-top">
+                        <i class="bi bi-pc-display-horizontal service-icon" aria-hidden="true"></i>
+                        <h4>Mantenimiento de Equipo de Cómputo</h4>
+                        <p>Limpieza y mantenimiento preventivo de laptops y computadoras de escritorio; incluyendo cambio de pasta térmica.</p>
+                    </div>
+                    <div class="catalogo-card-bottom">
+                        <h5 class="price-title"><i class="bi bi-tag"></i> Precios</h5>
+                        <div class="service-price">
+                            <h5><span>Laptop</span><strong data-catalogo-producto="mant-computo" data-catalogo-opcion="0">—</strong></h5>
+                            <h5><span>PC</span><strong data-catalogo-producto="mant-computo" data-catalogo-opcion="1">—</strong></h5>
+                        </div>
+                        <div class="service-buttons">
+                            <button type="button" class="btn btn-primary" data-cart-producto="mant-computo"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-5">
+                <article class="service-card plan-card">
+                    <div class="plan-body">
+                        <i class="bi bi-wrench-adjustable service-icon" aria-hidden="true"></i>
+                        <h4>Reparaciones</h4>
+                        <p>Diagnóstico y reparación de equipo de cómputo y teléfonos celulares, cambio de los componentes necesarios.</p>
+                    </div>
+                    <div class="plan-footer">
+                        <div class="plan-new-price" data-catalogo-producto="reparaciones" data-catalogo-tipo="actual">—</div>
+                        <div class="service-buttons">
+                            <button type="button" class="btn btn-primary" data-cart-producto="reparaciones"><i class="bi bi-chat-dots"></i> Solicitar cotización</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
 
         </div>
 
@@ -1024,21 +1026,24 @@
             <div class="col-lg-2">
                 <h5>Navegación</h5>
                 <ul class="footer-links">
-                    <li class="solo-mexico d-none"><a href="#promociones"><i class="bi bi-chevron-right"></i> Promociones</a></li>
-                    <li><a href="#planes-digitales"><i class="bi bi-chevron-right"></i> Soluciones Digitales</a></li>
-                    <li><a href="#servicio-destacado"><i class="bi bi-chevron-right"></i> Soluciones Técnicas</a></li>
-                    <li><a href="#productos"><i class="bi bi-chevron-right"></i> Mantenimiento y Reparaciones</a></li>
-                    <li><a href="#preguntas-y-respuestas"><i class="bi bi-chevron-right"></i> P & R</a></li>
-                    <li><a href="sobre-mi.html"><i class="bi bi-chevron-right"></i> Sobre Mí</a></li>
+                    <li><a href="#"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#promociones"><i class="bi bi-chevron-right"></i> Promociones</a></li>
+                    <li><a href="#soluciones-digitales"><i class="bi bi-chevron-right"></i> Soluciones Digitales</a></li>
+                    <li><a href="#soluciones-tecnicas"><i class="bi bi-chevron-right"></i> Soluciones Técnicas</a></li>
+                    <li><a href="#preguntas-y-respuestas"><i class="bi bi-chevron-right"></i> Preg. y Resp.</a></li>
+                    <li><a href="#contacto"><i class="bi bi-chevron-right"></i> Contacto</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3">
-                <h5>Clientes</h5>
+                <h5>Menú</h5>
                 <ul class="footer-links">
-                    <li><a href="creadores-y-marcas.html"><i class="bi bi-chevron-right"></i> Creadores y Marcas</a></li>
-                    <li><a href="negocios-y-pymes.html"><i class="bi bi-chevron-right"></i> Negocios y PyMEs</a></li>
-                    <li><a href="personas-y-profesionales.html"><i class="bi bi-chevron-right"></i> Personas y Profesionales</a></li>
+                    <li><a href="#soluciones-digitales"><i class="bi bi-chevron-right"></i> Contenido Digital</a></li>
+                    <li><a href="#planes-de-contenido"><i class="bi bi-chevron-right"></i> Planes de Contenido</a></li>
+                    <li><a href="#desarrollo-web"><i class="bi bi-chevron-right"></i> Desarrollo Web</a></li>
+                    <li><a href="#soluciones-tecnicas"><i class="bi bi-chevron-right"></i> Soporte Técnico Remoto</a></li>
+                    <li><a href="#soporte-ti-remoto"><i class="bi bi-chevron-right"></i> Soporte TI Remoto</a></li>
+                    <li><a href="#mantenimiento-y-reparaciones"><i class="bi bi-chevron-right"></i> Mant. y Rep.</a></li>
                 </ul>
             </div>
 
@@ -1063,7 +1068,7 @@
 <!-- MODAL'S DEL SITIO -->
 
 <!-- MODAL SELECCIÓN DE PAÍS -->
-<div class="modal fade" id="modalPais" tabindex="-1" aria-labelledby="modalPaisLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade" id="modalPais" tabindex="-1" hidden aria-labelledby="modalPaisLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style=" background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:45px; overflow:hidden; color:var(--text);">
@@ -1177,10 +1182,101 @@
     </div>
 </div>
 
+
+<!-- BOTÓN FLOTANTE PARA ACCEDER AL CARRITO DESDE CUALQUIER SECCIÓN -->
+<button type="button" class="carrito-flotante" data-bs-toggle="offcanvas" data-bs-target="#carritoPanel" aria-controls="carritoPanel" aria-label="Abrir carrito de compras">
+    <i class="bi bi-cart" aria-hidden="true"></i>
+    <span class="carrito-flotante-texto">Mi carrito</span>
+    <span class="carrito-contador" data-carrito-conteo>0</span>
+</button>
+
+<!-- MODAL: ELEGIR VARIANTE Y CANTIDAD -->
+<div class="modal fade" id="modalElegirServicio" tabindex="-1" aria-labelledby="elegirServicioTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content carrito-modal-contenido">
+            <form id="formElegirServicio">
+                <div class="modal-header border-0 align-items-start">
+                    <div>
+                        <small class="carrito-eyebrow">PERSONALIZA TU SERVICIO</small>
+                        <h3 class="modal-title" id="elegirServicioTitulo">Seleccionar servicio</h3>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <input type="hidden" id="elegirProductoId">
+                    <div class="mb-3">
+                        <label for="elegirOpcion" class="form-label">Presentación o paquete</label>
+                        <select id="elegirOpcion" class="form-select carrito-control" required></select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="elegirCantidad" class="form-label">Cantidad de paquetes o servicios</label>
+                        <input id="elegirCantidad" type="number" class="form-control carrito-control" min="1" max="99" step="1" value="1" required>
+                    </div>
+                    <div class="carrito-seleccion-resumen">
+                        <div><span>Precio unitario</span><strong id="elegirPrecioUnitario">—</strong></div>
+                        <div><span>Total de la selección</span><strong id="elegirTotal">—</strong></div>
+                    </div>
+                    <p class="carrito-seleccion-nota" id="elegirAclaracion"></p>
+                    <p class="carrito-seleccion-nota" id="elegirNota" hidden></p>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary btn-custom" type="submit"><i class="bi bi-bag-plus me-2"></i>Agregar al carrito</button>
+                        <button class="btn btn-outline-light btn-custom" type="button" data-bs-dismiss="modal">Seguir explorando</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- PANEL LATERAL DE CARRITO / CHECKOUT -->
+<div class="offcanvas offcanvas-end carrito-panel" tabindex="-1" id="carritoPanel" aria-labelledby="carritoPanelTitulo">
+    <div class="offcanvas-header carrito-panel-cabecera">
+        <div><small class="carrito-eyebrow">IC DIGTEC</small><h3 class="offcanvas-title" id="carritoPanelTitulo"><i class="bi bi-bag-check me-2"></i>Mi carrito</h3></div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar carrito"></button>
+    </div>
+    <div class="offcanvas-body carrito-panel-cuerpo">
+        <div id="carritoErrorCarga" class="carrito-alerta" role="alert" hidden></div>
+        <div id="carritoArticulos" class="carrito-articulos" aria-live="polite">
+            <div class="carrito-vacio">Cargando catálogo…</div>
+        </div>
+        <div class="carrito-bloque">
+            <h4>Cupón de descuento</h4>
+            <div class="carrito-cupon">
+                <input type="text" id="carritoCodigoCupon" class="form-control carrito-control" autocomplete="off" maxlength="40" placeholder="Escribe tu cupón" aria-label="Código de cupón">
+                <button type="button" id="carritoAplicarCupon" class="btn btn-outline-light">Aplicar</button>
+                <button type="button" id="carritoQuitarCupon" class="carrito-eliminar" hidden>Quitar</button>
+            </div>
+            <p id="carritoEstadoCupon" class="carrito-texto-ayuda" role="status">Los cupones se validan al ingresar el código.</p>
+        </div>
+        <div class="carrito-bloque carrito-resumen-total">
+            <h4>Resumen de tu pedido</h4>
+            <div class="carrito-resumen-fila"><span>Subtotal sin descuentos</span><strong id="carritoSubtotal">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila"><span>Descuento por promociones</span><strong id="carritoDescuentoServicios">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila"><span>Descuento por cupón</span><strong id="carritoDescuentoCupon">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila carrito-resumen-destacado"><span id="carritoTotalEtiqueta">Total después de descuentos</span><strong id="carritoTotal">$0 MXN</strong></div>
+            <p id="carritoAclaracion" class="carrito-texto-ayuda" hidden></p>
+        </div>
+        <form id="formCarritoCheckout" class="carrito-bloque carrito-checkout">
+            <h4>Datos para enviar tu pedido</h4>
+            <div class="mb-3"><label for="carritoNombre" class="form-label">Nombre completo *</label><input id="carritoNombre" class="form-control carrito-control" type="text" maxlength="100" autocomplete="name" required placeholder="Tu nombre"></div>
+            <div class="mb-3"><label for="carritoCorreo" class="form-label">Correo electrónico (opcional)</label><input id="carritoCorreo" class="form-control carrito-control" type="email" maxlength="254" autocomplete="email" placeholder="correo@ejemplo.com"></div>
+            <fieldset class="carrito-metodos">
+                <legend>Método de pago preferido *</legend>
+                <label><input type="radio" name="metodoPago" value="transferencia" required><i class="bi bi-bank" aria-hidden="true"></i> Transferencia bancaria</label>
+                <label><input type="radio" name="metodoPago" value="mercadopago" required><i class="bi bi-credit-card" aria-hidden="true"></i> Mercado Pago</label>
+            </fieldset>
+            <p class="carrito-texto-ayuda">Seleccionar un método no realiza ningún cobro. Recibirás las indicaciones para pagar cuando confirmemos tu solicitud por WhatsApp.</p>
+            <button type="submit" id="carritoEnviar" class="btn btn-primary btn-custom carrito-enviar" disabled><i class="bi bi-whatsapp me-2"></i>Enviar pedido por WhatsApp</button>
+            <p class="carrito-texto-ayuda mt-2 mb-0">Al continuar se abrirá WhatsApp con el resumen. Revisa y envía el mensaje para solicitar el servicio.</p>
+        </form>
+    </div>
+</div>
+
 <!-- SCRIPT'S DEL SITIO -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&amp;version=v23.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script src="carrito.js"></script>
 <div id="fb-root"></div>
 
 </body>
