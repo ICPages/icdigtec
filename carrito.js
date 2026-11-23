@@ -462,10 +462,11 @@
       partes.push(`*CLABE:* ${cuenta.clabe}`);
       partes.push(`*Beneficiario:* ${cuenta.beneficiario}`);
       partes.push(`*Institución:* ${cuenta.institucion}`);
-      partes.push('Verificamos el pago y procedemos a trabajar tu pedido.');
+      partes.push('', '_Verificamos el pago y procedemos a trabajar tu pedido._');
     } else if (metodo === 'mercadopago') {
-      partes.push(`Ingresa al siguiente enlace e ingresa el total de tu compra *${importePago}*. Verificamos el pago y procedemos a trabajar tu pedido.`);
+      partes.push(`Ingresa al siguiente enlace e ingresa el total de tu compra *${importePago}*.`);
       partes.push(DATOS_PAGO.mercadopago.enlace);
+      partes.push('', `_Verificamos el pago y procedemos a trabajar tu pedido._`);
     }
     return partes.join('\n');
   }
