@@ -16,13 +16,13 @@
     <meta property="og:title" content="IC DigTec | Soluciones Digitales y Técnicas">
     <meta property="og:description" content="IC DigTec ofrece soluciones digitales, técnicas y remotas para marcas, negocios y personas de México, España y Estados Unidos.">
     <meta property="og:url" content="https://www.ictecdigital.com/">
-    <meta property="og:image" content="https://www.ictecdigital.com/Contenido/Branding/Preview.webp">
+    <meta property="og:image" content="https://www.ictecdigital.com/Contenido/Marca/Preview.webp">
     <meta property="og:image:alt" content="IC DigTec - Soluciones Digitales y Técnicas">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="IC DigTec | Soluciones Digitales y Técnicas">
     <meta name="twitter:description" content="IC DigTec ofrece soluciones digitales, técnicas y remotas para marcas, negocios y personas de México, España y Estados Unidos.">
-    <meta name="twitter:image" content="https://www.ictecdigital.com/Contenido/Branding/Preview.webp">
-     <link rel="icon" href="Contenido/Branding/Icono.webp">
+    <meta name="twitter:image" content="https://www.ictecdigital.com/Contenido/Preview.webp">
+     <link rel="icon" href="Contenido/Marca/Icono.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -115,7 +115,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
     <div class="container-fluid px-4">
-        <a class="navbar-brand" href="#inicio" aria-label="IC DigTec Inicio"><img src="Contenido/Oscuro/Logo Recortado.png" alt="IC DigTec" class="logo-navbar"></a>
+        <a class="navbar-brand" href="#inicio" aria-label="IC DigTec Inicio"><img src="Contenido/Marca/Logo.webp" alt="IC DigTec" class="logo-navbar"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido" aria-controls="navbarContenido" aria-expanded="false" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
         <div class="collapse navbar-collapse" id="navbarContenido">
 
@@ -265,22 +265,15 @@
 
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Promoción 1"></button>
-            <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="1" aria-label="Promoción 2"></button>
+            <!-- <button type="button" data-bs-target="#carouselPromociones" data-bs-slide-to="1" aria-label="Promoción 2"></button> -->
         </div>
 
         <div class="carousel-inner">
 
-            <!-- PROMOCIÓN 1: actualizar también el arte Promo1.webp si todavía muestra una tarifa anterior. -->
+            <!-- ANUNCIO 1-->
             <div class="carousel-item active">
-                <a href="#soluciones-tecnicas" class="promocion-link">
-                    <img src="Contenido/Branding/Promo1.webp" class="promocion-img" alt="Instalación de Office" width="1920" height="640">
-                </a>
-            </div>
-
-            <!-- PROMOCIÓN 2 -->
-            <div class="carousel-item">
-                <a href="creadores-y-marcas.html#paquetes-playeras-gorras" rel="noopener noreferrer" class="promocion-link">
-                    <img src="Contenido/Branding/Promo2.webp" class="promocion-img" alt="Paquetes de Playeras y Gorras" width="1920" height="640">
+                <a href="instalacion-office-form" class="promocion-link">
+                    <img src="Contenido/Marca/Banner1.webp" class="promocion-img" alt="Instalación de Office" width="1920" height="640">
                 </a>
             </div>
 
@@ -1011,7 +1004,7 @@
         <div class="row g-4">
 
             <div class="col-lg-4" style="text-align: center;">
-                <a class="navbar-brand" href="#"><img src="Contenido/Branding/Logo.webp" alt="IC DigTec" class="footer-logo"></a>
+                <a class="navbar-brand" href="#"><img src="Contenido/Marca/Logo.webp" alt="IC DigTec" class="footer-logo"></a>
                 <p class="footer-slogan">Soluciones Digitales y Técnicas</p>
                 <p>Desarrollamos soluciones digitales y técnicas para marcas, negocios y personas</p>
                 <div class="hero-social">
@@ -1065,41 +1058,95 @@
     </div>
 </footer>
 
+<!-- BOTÓN FLOTANTE "MI CARRITO" -->
+<button type="button" class="carrito-flotante" data-bs-toggle="offcanvas" data-bs-target="#carritoPanel" aria-controls="carritoPanel" aria-label="Abrir carrito de compras">
+    <i class="bi bi-cart" aria-hidden="true"></i>
+    <span class="carrito-flotante-texto">Mi carrito</span>
+    <span class="carrito-contador" data-carrito-conteo>0</span>
+</button>
+
 <!-- MODAL'S DEL SITIO -->
 
-<!-- MODAL SELECCIÓN DE PAÍS -->
-<div class="modal fade" id="modalPais" tabindex="-1" hidden aria-labelledby="modalPaisLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-
+<!-- PERSONALIZAR SERVICIO -->
+<div class="modal fade" id="modalElegirServicio" tabindex="-1" aria-labelledby="elegirServicioTitulo" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style=" background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:45px; overflow:hidden; color:var(--text);">
-
-            <div class="modal-header border-0 text-center d-block pt-4 px-4">
-                <div class="service-icon mb-3"><i class="bi bi-globe-americas"></i></div>
-                <h4 id="modalPaisLabel" class="fw-bold mb-2">Selecciona tu país</h4>
-                <p class="mb-0" style="color:var(--text-secondary); line-height:1.7;">Para una experiencia personalizada y eficiente, por favor, selecciona tu país:</p>
-            </div>
-
-            <div class="modal-body px-4 pb-4">
-                <div class="d-grid gap-3">
-
-                    <button type="button" class="btn btn-primary btn-pais" data-pais="España" data-moneda="EUR">
-                        <span><i class="fi fi-es"></i> España</span>
-                    </button>
-
-                    <button type="button" class="btn btn-primary btn-pais" data-pais="Estados Unidos" data-moneda="USD">
-                        <span><i class="fi fi-us"></i> Estados Unidos</span>
-                    </button>
-
-                    <button type="button" class="btn btn-primary btn-pais" data-pais="México" data-moneda="MXN">
-                        <span><i class="fi fi-mx"></i> México</span>
-                    </button>
-
+        <div class="modal-content carrito-modal-contenido">
+            <form id="formElegirServicio">
+                <div class="modal-header border-0 align-items-start">
+                    <div>
+                        <small class="carrito-eyebrow">PERSONALIZA TU SERVICIO</small>
+                        <h3 class="modal-title" id="elegirServicioTitulo">Seleccionar servicio</h3>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-            </div>
-
+                <div class="modal-body pt-0">
+                    <input type="hidden" id="elegirProductoId">
+                    <div class="mb-3">
+                        <label for="elegirOpcion" class="form-label">Presentación o paquete</label>
+                        <select id="elegirOpcion" class="form-select carrito-control" required></select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="elegirCantidad" class="form-label">Cantidad de paquetes o servicios</label>
+                        <input id="elegirCantidad" type="number" class="form-control carrito-control" min="1" max="99" step="1" value="1" required>
+                    </div>
+                    <div class="carrito-seleccion-resumen">
+                        <div><span>Precio unitario</span><strong id="elegirPrecioUnitario">—</strong></div>
+                        <div><span>Total de la selección</span><strong id="elegirTotal">—</strong></div>
+                    </div>
+                    <p class="carrito-seleccion-nota" id="elegirAclaracion"></p>
+                    <p class="carrito-seleccion-nota" id="elegirNota" hidden></p>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-primary btn-custom" type="submit"><i class="bi bi-bag-plus me-2"></i>Agregar al carrito</button>
+                        <button class="btn btn-outline-light btn-custom" type="button" data-bs-dismiss="modal">Seguir explorando</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
+<!-- PANEL "MI CARRITO" -->
+<div class="offcanvas offcanvas-end carrito-panel" tabindex="-1" id="carritoPanel" aria-labelledby="carritoPanelTitulo">
+    <div class="offcanvas-header carrito-panel-cabecera">
+        <div><small class="carrito-eyebrow">IC DIGTEC</small><h3 class="offcanvas-title" id="carritoPanelTitulo"><i class="bi bi-cart me-2"></i>Mi carrito</h3></div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar carrito"></button>
+    </div>
+    <div class="offcanvas-body carrito-panel-cuerpo">
+        <div id="carritoErrorCarga" class="carrito-alerta" role="alert" hidden></div>
+        <div id="carritoArticulos" class="carrito-articulos" aria-live="polite">
+            <div class="carrito-vacio">Cargando catálogo…</div>
+        </div>
+        <div class="carrito-bloque">
+            <h4>Cupón de descuento</h4>
+            <div class="carrito-cupon">
+                <input type="text" id="carritoCodigoCupon" class="form-control carrito-control" autocomplete="off" maxlength="40" placeholder="Escribe tu cupón" aria-label="Código de cupón">
+                <button type="button" id="carritoAplicarCupon" class="btn btn-outline-light">Aplicar</button>
+                <button type="button" id="carritoQuitarCupon" class="carrito-eliminar" hidden>Quitar</button>
+            </div>
+            <p id="carritoEstadoCupon" class="carrito-texto-ayuda" role="status">Los cupones se validan al ingresar el código.</p>
+        </div>
+        <div class="carrito-bloque carrito-resumen-total">
+            <h4>Resumen de tu pedido</h4>
+            <div class="carrito-resumen-fila"><span>Subtotal sin descuentos</span><strong id="carritoSubtotal">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila"><span>Descuento por promociones</span><strong id="carritoDescuentoServicios">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila"><span>Descuento por cupón</span><strong id="carritoDescuentoCupon">$0 MXN</strong></div>
+            <div class="carrito-resumen-fila carrito-resumen-destacado"><span id="carritoTotalEtiqueta">Total después de descuentos</span><strong id="carritoTotal">$0 MXN</strong></div>
+            <p id="carritoAclaracion" class="carrito-texto-ayuda" hidden></p>
+        </div>
+        <form id="formCarritoCheckout" class="carrito-bloque carrito-checkout">
+            <h4>Datos para enviar tu pedido</h4>
+            <div class="mb-3"><label for="carritoNombre" class="form-label">Nombre completo *</label><input id="carritoNombre" class="form-control carrito-control" type="text" maxlength="100" autocomplete="name" required placeholder="Tu nombre"></div>
+            <div class="mb-3"><label for="carritoCorreo" class="form-label">Correo electrónico (opcional)</label><input id="carritoCorreo" class="form-control carrito-control" type="email" maxlength="254" autocomplete="email" placeholder="correo@ejemplo.com"></div>
+            <fieldset class="carrito-metodos">
+                <legend>Método de pago preferido *</legend>
+                <label><input type="radio" name="metodoPago" value="transferencia" required><i class="bi bi-bank" aria-hidden="true"></i> Transferencia bancaria</label>
+                <label><input type="radio" name="metodoPago" value="mercadopago" required><i class="bi bi-credit-card" aria-hidden="true"></i> Mercado Pago</label>
+            </fieldset>
+            <p class="carrito-texto-ayuda">Seleccionar un método no realiza ningún cobro. Recibirás las indicaciones para pagar cuando confirmemos tu solicitud por WhatsApp.</p>
+            <button type="submit" id="carritoEnviar" class="btn btn-primary btn-custom carrito-enviar" disabled><i class="bi bi-whatsapp me-2"></i>Enviar pedido por WhatsApp</button>
+            <p class="carrito-texto-ayuda mt-2 mb-0">Al continuar se abrirá WhatsApp con el resumen. Revisa y envía el mensaje para solicitar el servicio.</p>
+        </form>
+    </div>
 </div>
 
 <!-- MODAL DE COMPRA / COTIZACIÓN -->
@@ -1179,96 +1226,6 @@
 
             </form>
         </div>
-    </div>
-</div>
-
-
-<!-- BOTÓN FLOTANTE PARA ACCEDER AL CARRITO DESDE CUALQUIER SECCIÓN -->
-<button type="button" class="carrito-flotante" data-bs-toggle="offcanvas" data-bs-target="#carritoPanel" aria-controls="carritoPanel" aria-label="Abrir carrito de compras">
-    <i class="bi bi-cart" aria-hidden="true"></i>
-    <span class="carrito-flotante-texto">Mi carrito</span>
-    <span class="carrito-contador" data-carrito-conteo>0</span>
-</button>
-
-<!-- MODAL: ELEGIR VARIANTE Y CANTIDAD -->
-<div class="modal fade" id="modalElegirServicio" tabindex="-1" aria-labelledby="elegirServicioTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content carrito-modal-contenido">
-            <form id="formElegirServicio">
-                <div class="modal-header border-0 align-items-start">
-                    <div>
-                        <small class="carrito-eyebrow">PERSONALIZA TU SERVICIO</small>
-                        <h3 class="modal-title" id="elegirServicioTitulo">Seleccionar servicio</h3>
-                    </div>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body pt-0">
-                    <input type="hidden" id="elegirProductoId">
-                    <div class="mb-3">
-                        <label for="elegirOpcion" class="form-label">Presentación o paquete</label>
-                        <select id="elegirOpcion" class="form-select carrito-control" required></select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="elegirCantidad" class="form-label">Cantidad de paquetes o servicios</label>
-                        <input id="elegirCantidad" type="number" class="form-control carrito-control" min="1" max="99" step="1" value="1" required>
-                    </div>
-                    <div class="carrito-seleccion-resumen">
-                        <div><span>Precio unitario</span><strong id="elegirPrecioUnitario">—</strong></div>
-                        <div><span>Total de la selección</span><strong id="elegirTotal">—</strong></div>
-                    </div>
-                    <p class="carrito-seleccion-nota" id="elegirAclaracion"></p>
-                    <p class="carrito-seleccion-nota" id="elegirNota" hidden></p>
-                    <div class="d-grid gap-2 mt-3">
-                        <button class="btn btn-primary btn-custom" type="submit"><i class="bi bi-bag-plus me-2"></i>Agregar al carrito</button>
-                        <button class="btn btn-outline-light btn-custom" type="button" data-bs-dismiss="modal">Seguir explorando</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- PANEL LATERAL DE CARRITO / CHECKOUT -->
-<div class="offcanvas offcanvas-end carrito-panel" tabindex="-1" id="carritoPanel" aria-labelledby="carritoPanelTitulo">
-    <div class="offcanvas-header carrito-panel-cabecera">
-        <div><small class="carrito-eyebrow">IC DIGTEC</small><h3 class="offcanvas-title" id="carritoPanelTitulo"><i class="bi bi-bag-check me-2"></i>Mi carrito</h3></div>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar carrito"></button>
-    </div>
-    <div class="offcanvas-body carrito-panel-cuerpo">
-        <div id="carritoErrorCarga" class="carrito-alerta" role="alert" hidden></div>
-        <div id="carritoArticulos" class="carrito-articulos" aria-live="polite">
-            <div class="carrito-vacio">Cargando catálogo…</div>
-        </div>
-        <div class="carrito-bloque">
-            <h4>Cupón de descuento</h4>
-            <div class="carrito-cupon">
-                <input type="text" id="carritoCodigoCupon" class="form-control carrito-control" autocomplete="off" maxlength="40" placeholder="Escribe tu cupón" aria-label="Código de cupón">
-                <button type="button" id="carritoAplicarCupon" class="btn btn-outline-light">Aplicar</button>
-                <button type="button" id="carritoQuitarCupon" class="carrito-eliminar" hidden>Quitar</button>
-            </div>
-            <p id="carritoEstadoCupon" class="carrito-texto-ayuda" role="status">Los cupones se validan al ingresar el código.</p>
-        </div>
-        <div class="carrito-bloque carrito-resumen-total">
-            <h4>Resumen de tu pedido</h4>
-            <div class="carrito-resumen-fila"><span>Subtotal sin descuentos</span><strong id="carritoSubtotal">$0 MXN</strong></div>
-            <div class="carrito-resumen-fila"><span>Descuento por promociones</span><strong id="carritoDescuentoServicios">$0 MXN</strong></div>
-            <div class="carrito-resumen-fila"><span>Descuento por cupón</span><strong id="carritoDescuentoCupon">$0 MXN</strong></div>
-            <div class="carrito-resumen-fila carrito-resumen-destacado"><span id="carritoTotalEtiqueta">Total después de descuentos</span><strong id="carritoTotal">$0 MXN</strong></div>
-            <p id="carritoAclaracion" class="carrito-texto-ayuda" hidden></p>
-        </div>
-        <form id="formCarritoCheckout" class="carrito-bloque carrito-checkout">
-            <h4>Datos para enviar tu pedido</h4>
-            <div class="mb-3"><label for="carritoNombre" class="form-label">Nombre completo *</label><input id="carritoNombre" class="form-control carrito-control" type="text" maxlength="100" autocomplete="name" required placeholder="Tu nombre"></div>
-            <div class="mb-3"><label for="carritoCorreo" class="form-label">Correo electrónico (opcional)</label><input id="carritoCorreo" class="form-control carrito-control" type="email" maxlength="254" autocomplete="email" placeholder="correo@ejemplo.com"></div>
-            <fieldset class="carrito-metodos">
-                <legend>Método de pago preferido *</legend>
-                <label><input type="radio" name="metodoPago" value="transferencia" required><i class="bi bi-bank" aria-hidden="true"></i> Transferencia bancaria</label>
-                <label><input type="radio" name="metodoPago" value="mercadopago" required><i class="bi bi-credit-card" aria-hidden="true"></i> Mercado Pago</label>
-            </fieldset>
-            <p class="carrito-texto-ayuda">Seleccionar un método no realiza ningún cobro. Recibirás las indicaciones para pagar cuando confirmemos tu solicitud por WhatsApp.</p>
-            <button type="submit" id="carritoEnviar" class="btn btn-primary btn-custom carrito-enviar" disabled><i class="bi bi-whatsapp me-2"></i>Enviar pedido por WhatsApp</button>
-            <p class="carrito-texto-ayuda mt-2 mb-0">Al continuar se abrirá WhatsApp con el resumen. Revisa y envía el mensaje para solicitar el servicio.</p>
-        </form>
     </div>
 </div>
 
