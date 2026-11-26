@@ -314,8 +314,19 @@
     if (cotizar) {
       precios.appendChild(crear('span', 'carrito-precio-final', 'Precio unitario: A cotizar'));
     } else {
-      precios.appendChild(crear('span', '', `Precio unitario: ${dinero(lista)}`));
-      if (lista > precio) precios.appendChild(crear('span', 'carrito-precio-descuento', `Precio con descuento: ${dinero(redondear(precio))} por unidad`));
+      // Mostrar ambos precios en UNA sola línea cuando existe descuento.
+      // Usamos <del> porque el CSS global de la tienda tiene reglas para <s>
+      // que lo convertirían en un elemento de bloque.
+      const lineaPrecio = crear('span');
+      lineaPrecio.appendChild(document.createTextNode('Precio unitario: '));
+      if (lista > precio) {
+        lineaPrecio.appendChild(crear('del', '', dinero(lista)));
+        lineaPrecio.appendChild(document.createTextNode(' '));
+        lineaPrecio.appendChild(crear('strong', 'carrito-precio-descuento', dinero(redondear(precio))));
+      } else {
+        lineaPrecio.appendChild(document.createTextNode(dinero(lista)));
+      }
+      precios.appendChild(lineaPrecio);
       if (opcion.estimado) precios.appendChild(crear('small', 'carrito-estimacion', 'Precio desde; no incluye cargos adicionales.'));
     }
     bloque.appendChild(precios);
@@ -381,7 +392,7 @@
     $('#carritoTotal').textContent = resumen.detalles.length && resumen.cotizaciones === resumen.detalles.length
       ? 'A cotizar' : dinero(resumen.total);
     $('#carritoTotalEtiqueta').textContent = resumen.cotizaciones || resumen.estimados
-      ? 'Total estimado con precios publicados' : 'Total después de descuentos';
+      ? 'Total estimado con precios publicados' : 'TOTAL';
     $('#carritoAclaracion').textContent = resumen.cotizaciones || resumen.estimados
       ? 'Hay servicios sin precio definido o con tarifa "desde". El total es parcial y puede variar después de cotizar.'
       : 'Importes en pesos mexicanos. El pedido se confirma directamente con IC DigTec.';
@@ -405,7 +416,7 @@
 
   function construirMensaje(nombre, correo, metodo) {
     const resumen = calcularResumen();
-    const importePago = dinero(resumen.total).replace(/\s*MXN$/, '');
+    const importePago = dinero(resumen.total);
     const totalPorDefinir = resumen.cotizaciones > 0 || resumen.estimados > 0;
     const descuentoTotal = redondear(resumen.promociones + resumen.descuentoCupon);
     const partes = [
@@ -422,16 +433,21 @@
       partes.push('', `- *${producto.nombre}*`);
       const regla = reglaPorCantidad(producto);
       const usaUnidades = regla && opcion.id === regla.opcionBase;
+      const cantidadTexto = `${item.cantidad} ${item.cantidad === 1 ? 'Unidad' : 'Unidades'}`;
       if (!usaUnidades) partes.push(`Opción: ${opcion.nombre}`);
-      partes.push(`Cantidad: ${usaUnidades ? textoCantidad(producto, item.cantidad) : item.cantidad}`);
       if (cotizar) {
-        partes.push('Precio: A cotizar');
+        partes.push(`${cantidadTexto}: A cotizar`);
       } else {
-        partes.push(`Precio unitario: ${dinero(lista)}`);
         if (lista > precio) {
-          partes.push(`Precio unitario con descuento: ${dinero(redondear(precio))}`);
+          // El tachado (~) y la cursiva (_) son compatibles con WhatsApp.
+          // Se omite el símbolo $ solo en el precio unitario rebajado para
+          // conservar el formato solicitado: De ~$249 MXN~ a _219.8 MXN_.
+          const precioRebajado = dinero(redondear(precio)).replace(/^\$/, '');
+          partes.push(`De ~${dinero(lista)}~ a _${precioRebajado}_`);
+        } else {
+          partes.push(`Precio unitario: ${dinero(redondear(precio))}`);
         }
-        partes.push(`Importe: ${dinero(importe)}`);
+        partes.push(`${cantidadTexto}: ${dinero(importe)}`);
       }
       if (opcion.estimado) partes.push('Tarifa desde: sujeta a confirmación.');
       if (producto.nota) partes.push(`Nota: ${producto.nota}`);
@@ -462,12 +478,13 @@
       partes.push(`*CLABE:* ${cuenta.clabe}`);
       partes.push(`*Beneficiario:* ${cuenta.beneficiario}`);
       partes.push(`*Institución:* ${cuenta.institucion}`);
-      partes.push('', '_Verificamos el pago y procedemos a trabajar tu pedido._');
     } else if (metodo === 'mercadopago') {
       partes.push(`Ingresa al siguiente enlace e introduce el total de tu compra *${importePago}*.`, '');
       partes.push(DATOS_PAGO.mercadopago.enlace);
-      partes.push('', `_Verificamos el pago y procedemos a trabajar tu pedido._`);
     }
+
+    partes.push('', '_*NOTA:* para comenzar a trabajar tu pedido, es necesario cubrir el total de tu compra para asignar espacio de desarrollo._');
+    partes.push('', '_*NOTA:* si requiere ticket de cotización, puede solicitarlo; el ticket con leyenda "PAGADO" se le enviará una vez confirmado el pago._');
     return partes.join('\n');
   }
 
