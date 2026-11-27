@@ -1559,3 +1559,69 @@ path.two {
     .carrito-panel-cuerpo { padding: 14px; }
     .carrito-bloque, .carrito-articulo { padding: 15px; }
 }
+
+
+/* =============================================================
+   FORMULARIO OFFICE: usa las variables y los componentes de
+   estilos.css para compartir la identidad visual con index.html.
+   ============================================================= */
+.office-page {
+    padding: 145px 0 90px;
+    min-height: 90vh;
+    background: radial-gradient(ellipse at 75% 0%, rgba(13,110,253,.18), transparent 43%);
+}
+.office-container { max-width: 1150px; }
+.office-encabezado { max-width: 790px; margin: 0 auto 35px; text-align: center; }
+.office-encabezado h1 { font-size: clamp(1.85rem, 4vw, 2.95rem); font-weight: 800; margin: 0 0 16px; }
+.office-encabezado > p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 0; }
+.office-encabezado .hero-badge { font-size: .79rem; font-weight: 600; }
+.office-grid { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(280px, .9fr); gap: 23px; align-items: start; }
+.office-form-column { min-width: 0; display: grid; gap: 16px; }
+.office-card { margin: 0; padding: 24px; }
+.office-card h2, .office-resumen h2 { color: var(--text); font-size: 1.08rem; font-weight: 700; margin-bottom: 19px; }
+.office-card h2 i { color: var(--primary-light); }
+.office-card .form-label { color: var(--text-secondary); font-size: .84rem; font-weight: 500; margin-bottom: 8px; }
+.office-card .form-control, .office-card .form-select { color-scheme: dark; }
+.office-card .form-select option { background: var(--bg-secondary); color: var(--text); }
+.office-opcional { color: var(--text-muted); font-size: .78rem; font-weight: 400; }
+.office-info { color: var(--text-muted); font-size: .79rem; margin-top: 17px; line-height: 1.7; }
+.office-info strong { color: var(--text-secondary); font-weight: 600; }
+.office-stepper { max-width: max-content; }
+.office-stepper button { width: 42px; height: 45px; font-size: 1.15rem; }
+.office-stepper input { width: 72px; height: 45px; font-size: .98rem; }
+.office-stepper input:focus-visible { outline: 2px solid var(--primary-light); outline-offset: -2px; }
+.office-titulo-fila { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.office-titulo-fila h2 { margin-bottom: 12px; }
+.office-marcar-todas { font-size: .81rem; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+.office-marcar-todas input, .office-app input { accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
+.office-subtexto { font-size: .78rem; color: var(--text-muted); line-height: 1.6; margin: 0 0 15px; }
+.office-apps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.office-app { background: var(--bg-secondary); border: 1px solid var(--border-light); border-radius: 13px; display: flex; align-items: center; gap: 11px; padding: 12px 13px; color: var(--text-secondary); cursor: pointer; font-size: .82rem; }
+.office-app:has(input:checked) { background: color-mix(in srgb, var(--primary) 10%, var(--bg-secondary)); border-color: color-mix(in srgb, var(--primary-light) 35%, var(--border-light)); color: var(--text); }
+.office-app:focus-within { outline: 2px solid var(--primary-light); outline-offset: 1px; }
+.office-error { color: #ffa2a2; font-size: .79rem; margin: 11px 0 0; }
+.office-metodos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 14px; }
+.office-metodos label { min-height: 52px; }
+.office-aside { min-width: 0; }
+.office-resumen { position: sticky; top: 95px; margin: 0; padding: 25px; }
+.office-resumen h2 { font-size: 1.13rem; margin-top: 6px; margin-bottom: 21px; }
+.office-resumen-unitario { font-size: .78rem; color: var(--text-muted); text-align: right; margin: 8px 0 0; }
+.office-resumen .carrito-enviar { min-height: 48px; margin-top: 23px; }
+.office-privacidad { border-top: 1px solid var(--border-light); color: var(--text-muted); font-size: .75rem; margin-top: 15px; padding-top: 13px; }
+.office-privacidad a { color: var(--primary-light); text-decoration: underline; }
+.office-page [hidden] { display: none !important; }
+@media (max-width: 991px) {
+    .office-grid { grid-template-columns: 1fr; }
+    .office-aside { grid-row: auto; }
+    .office-resumen { position: static; }
+    .office-page { padding-top: 130px; }
+}
+@media (max-width: 575px) {
+    .office-page { padding: 120px 0 65px; }
+    .office-encabezado { margin-bottom: 26px; }
+    .office-encabezado h1 { font-size: 1.88rem; }
+    .office-card, .office-resumen { padding: 18px; }
+    .office-apps, .office-metodos { grid-template-columns: 1fr; }
+    .office-apps { gap: 8px; }
+    .office-card h2, .office-resumen h2 { font-size: 1.02rem; }
+}
